@@ -1,12 +1,15 @@
 /*!
-* sweetalert2 v9.15.2
-* Released under the MIT License.
-*/
+ * sweetalert2 v9.15.2
+ * Released under the MIT License.
+ */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.Sweetalert2 = factory());
-}(this, function () { 'use strict';
+  typeof exports === "object" && typeof module !== "undefined"
+    ? (module.exports = factory())
+    : typeof define === "function" && define.amd
+    ? define(factory)
+    : ((global = global || self), (global.Sweetalert2 = factory()));
+})(this, function () {
+  "use strict";
 
   function _typeof(obj) {
     "@babel/helpers - typeof";
@@ -17,7 +20,12 @@
       };
     } else {
       _typeof = function (obj) {
-        return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+        return obj &&
+          typeof Symbol === "function" &&
+          obj.constructor === Symbol &&
+          obj !== Symbol.prototype
+          ? "symbol"
+          : typeof obj;
       };
     }
 
@@ -47,19 +55,21 @@
   }
 
   function _extends() {
-    _extends = Object.assign || function (target) {
-      for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];
+    _extends =
+      Object.assign ||
+      function (target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i];
 
-        for (var key in source) {
-          if (Object.prototype.hasOwnProperty.call(source, key)) {
-            target[key] = source[key];
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
           }
         }
-      }
 
-      return target;
-    };
+        return target;
+      };
 
     return _extends.apply(this, arguments);
   }
@@ -73,24 +83,28 @@
       constructor: {
         value: subClass,
         writable: true,
-        configurable: true
-      }
+        configurable: true,
+      },
     });
     if (superClass) _setPrototypeOf(subClass, superClass);
   }
 
   function _getPrototypeOf(o) {
-    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-      return o.__proto__ || Object.getPrototypeOf(o);
-    };
+    _getPrototypeOf = Object.setPrototypeOf
+      ? Object.getPrototypeOf
+      : function _getPrototypeOf(o) {
+          return o.__proto__ || Object.getPrototypeOf(o);
+        };
     return _getPrototypeOf(o);
   }
 
   function _setPrototypeOf(o, p) {
-    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-      o.__proto__ = p;
-      return o;
-    };
+    _setPrototypeOf =
+      Object.setPrototypeOf ||
+      function _setPrototypeOf(o, p) {
+        o.__proto__ = p;
+        return o;
+      };
 
     return _setPrototypeOf(o, p);
   }
@@ -127,7 +141,9 @@
 
   function _assertThisInitialized(self) {
     if (self === void 0) {
-      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+      throw new ReferenceError(
+        "this hasn't been initialised - super() hasn't been called"
+      );
     }
 
     return self;
@@ -146,7 +162,7 @@
 
     return function _createSuperInternal() {
       var Super = _getPrototypeOf(Derived),
-          result;
+        result;
 
       if (hasNativeReflectConstruct) {
         var NewTarget = _getPrototypeOf(this).constructor;
@@ -190,7 +206,7 @@
     return _get(target, property, receiver || target);
   }
 
-  var consolePrefix = 'SweetAlert2:';
+  var consolePrefix = "SweetAlert2:";
   /**
    * Filter the unique values into a new array
    * @param arr
@@ -271,8 +287,18 @@
    * Show a one-time console warning about deprecated params/methods
    */
 
-  var warnAboutDepreation = function warnAboutDepreation(deprecatedParam, useInstead) {
-    warnOnce("\"".concat(deprecatedParam, "\" is deprecated and will be removed in the next major release. Please use \"").concat(useInstead, "\" instead."));
+  var warnAboutDepreation = function warnAboutDepreation(
+    deprecatedParam,
+    useInstead
+  ) {
+    warnOnce(
+      '"'
+        .concat(
+          deprecatedParam,
+          '" is deprecated and will be removed in the next major release. Please use "'
+        )
+        .concat(useInstead, '" instead.')
+    );
   };
   /**
    * If `arg` is a function, call it (with no arguments or context) and return the result.
@@ -281,10 +307,10 @@
    */
 
   var callIfFunction = function callIfFunction(arg) {
-    return typeof arg === 'function' ? arg() : arg;
+    return typeof arg === "function" ? arg() : arg;
   };
   var hasToPromiseFn = function hasToPromiseFn(arg) {
-    return arg && typeof arg.toPromise === 'function';
+    return arg && typeof arg.toPromise === "function";
   };
   var asPromise = function asPromise(arg) {
     return hasToPromiseFn(arg) ? arg.toPromise() : Promise.resolve(arg);
@@ -294,15 +320,15 @@
   };
 
   var DismissReason = Object.freeze({
-    cancel: 'cancel',
-    backdrop: 'backdrop',
-    close: 'close',
-    esc: 'esc',
-    timer: 'timer'
+    cancel: "cancel",
+    backdrop: "backdrop",
+    close: "close",
+    esc: "esc",
+    timer: "timer",
   });
 
   var isJqueryElement = function isJqueryElement(elem) {
-    return _typeof(elem) === 'object' && elem.jquery;
+    return _typeof(elem) === "object" && elem.jquery;
   };
 
   var isElement = function isElement(elem) {
@@ -312,16 +338,20 @@
   var argsToParams = function argsToParams(args) {
     var params = {};
 
-    if (_typeof(args[0]) === 'object' && !isElement(args[0])) {
+    if (_typeof(args[0]) === "object" && !isElement(args[0])) {
       _extends(params, args[0]);
     } else {
-      ['title', 'html', 'icon'].forEach(function (name, index) {
+      ["title", "html", "icon"].forEach(function (name, index) {
         var arg = args[index];
 
-        if (typeof arg === 'string' || isElement(arg)) {
+        if (typeof arg === "string" || isElement(arg)) {
           params[name] = arg;
         } else if (arg !== undefined) {
-          error("Unexpected type of ".concat(name, "! Expected \"string\" or \"Element\", got ").concat(_typeof(arg)));
+          error(
+            "Unexpected type of "
+              .concat(name, '! Expected "string" or "Element", got ')
+              .concat(_typeof(arg))
+          );
         }
       });
     }
@@ -329,7 +359,7 @@
     return params;
   };
 
-  var swalPrefix = 'swal2-';
+  var swalPrefix = "swal2-";
   var prefix = function prefix(items) {
     var result = {};
 
@@ -339,8 +369,77 @@
 
     return result;
   };
-  var swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'no-transition', 'toast', 'toast-shown', 'toast-column', 'show', 'hide', 'close', 'title', 'header', 'content', 'html-container', 'actions', 'confirm', 'cancel', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'timer-progress-bar-container', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error']);
-  var iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
+  var swalClasses = prefix([
+    "container",
+    "shown",
+    "height-auto",
+    "iosfix",
+    "popup",
+    "modal",
+    "no-backdrop",
+    "no-transition",
+    "toast",
+    "toast-shown",
+    "toast-column",
+    "show",
+    "hide",
+    "close",
+    "title",
+    "header",
+    "content",
+    "html-container",
+    "actions",
+    "confirm",
+    "cancel",
+    "footer",
+    "icon",
+    "icon-content",
+    "image",
+    "input",
+    "file",
+    "range",
+    "select",
+    "radio",
+    "checkbox",
+    "label",
+    "textarea",
+    "inputerror",
+    "validation-message",
+    "progress-steps",
+    "active-progress-step",
+    "progress-step",
+    "progress-step-line",
+    "loading",
+    "styled",
+    "top",
+    "top-start",
+    "top-end",
+    "top-left",
+    "top-right",
+    "center",
+    "center-start",
+    "center-end",
+    "center-left",
+    "center-right",
+    "bottom",
+    "bottom-start",
+    "bottom-end",
+    "bottom-left",
+    "bottom-right",
+    "grow-row",
+    "grow-column",
+    "grow-fullscreen",
+    "rtl",
+    "timer-progress-bar",
+    "timer-progress-bar-container",
+    "scrollbar-measure",
+    "icon-success",
+    "icon-warning",
+    "icon-info",
+    "icon-question",
+    "icon-error",
+  ]);
+  var iconTypes = prefix(["success", "warning", "info", "question", "error"]);
 
   var getContainer = function getContainer() {
     return document.body.querySelector(".".concat(swalClasses.container));
@@ -374,22 +473,26 @@
     return elementByClass(swalClasses.content);
   };
   var getHtmlContainer = function getHtmlContainer() {
-    return elementByClass(swalClasses['html-container']);
+    return elementByClass(swalClasses["html-container"]);
   };
   var getImage = function getImage() {
     return elementByClass(swalClasses.image);
   };
   var getProgressSteps = function getProgressSteps() {
-    return elementByClass(swalClasses['progress-steps']);
+    return elementByClass(swalClasses["progress-steps"]);
   };
   var getValidationMessage = function getValidationMessage() {
-    return elementByClass(swalClasses['validation-message']);
+    return elementByClass(swalClasses["validation-message"]);
   };
   var getConfirmButton = function getConfirmButton() {
-    return elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.confirm));
+    return elementBySelector(
+      ".".concat(swalClasses.actions, " .").concat(swalClasses.confirm)
+    );
   };
   var getCancelButton = function getCancelButton() {
-    return elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.cancel));
+    return elementBySelector(
+      ".".concat(swalClasses.actions, " .").concat(swalClasses.cancel)
+    );
   };
   var getActions = function getActions() {
     return elementByClass(swalClasses.actions);
@@ -401,58 +504,74 @@
     return elementByClass(swalClasses.footer);
   };
   var getTimerProgressBar = function getTimerProgressBar() {
-    return elementByClass(swalClasses['timer-progress-bar']);
+    return elementByClass(swalClasses["timer-progress-bar"]);
   };
   var getCloseButton = function getCloseButton() {
     return elementByClass(swalClasses.close);
   }; // https://github.com/jkup/focusable/blob/master/index.js
 
-  var focusable = "\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex=\"0\"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n";
+  var focusable =
+    '\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex="0"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n';
   var getFocusableElements = function getFocusableElements() {
-    var focusableElementsWithTabindex = toArray(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])')) // sort according to tabindex
-    .sort(function (a, b) {
-      a = parseInt(a.getAttribute('tabindex'));
-      b = parseInt(b.getAttribute('tabindex'));
+    var focusableElementsWithTabindex = toArray(
+      getPopup().querySelectorAll(
+        '[tabindex]:not([tabindex="-1"]):not([tabindex="0"])'
+      )
+    ) // sort according to tabindex
+      .sort(function (a, b) {
+        a = parseInt(a.getAttribute("tabindex"));
+        b = parseInt(b.getAttribute("tabindex"));
 
-      if (a > b) {
-        return 1;
-      } else if (a < b) {
-        return -1;
-      }
+        if (a > b) {
+          return 1;
+        } else if (a < b) {
+          return -1;
+        }
 
-      return 0;
+        return 0;
+      });
+    var otherFocusableElements = toArray(
+      getPopup().querySelectorAll(focusable)
+    ).filter(function (el) {
+      return el.getAttribute("tabindex") !== "-1";
     });
-    var otherFocusableElements = toArray(getPopup().querySelectorAll(focusable)).filter(function (el) {
-      return el.getAttribute('tabindex') !== '-1';
-    });
-    return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(function (el) {
+    return uniqueArray(
+      focusableElementsWithTabindex.concat(otherFocusableElements)
+    ).filter(function (el) {
       return isVisible(el);
     });
   };
   var isModal = function isModal() {
-    return !isToast() && !document.body.classList.contains(swalClasses['no-backdrop']);
+    return (
+      !isToast() &&
+      !document.body.classList.contains(swalClasses["no-backdrop"])
+    );
   };
   var isToast = function isToast() {
-    return document.body.classList.contains(swalClasses['toast-shown']);
+    return document.body.classList.contains(swalClasses["toast-shown"]);
   };
   var isLoading = function isLoading() {
-    return getPopup().hasAttribute('data-loading');
+    return getPopup().hasAttribute("data-loading");
   };
 
   var states = {
-    previousBodyPadding: null
+    previousBodyPadding: null,
   };
   var setInnerHtml = function setInnerHtml(elem, html) {
     // #1926
-    elem.textContent = '';
+    elem.textContent = "";
 
     if (html) {
       var parser = new DOMParser();
       var parsed = parser.parseFromString(html, "text/html");
-      toArray(parsed.querySelector('head').childNodes).forEach(function (child) {
+      toArray(parsed.querySelector("head").childNodes).forEach(function (
+        child
+      ) {
         elem.appendChild(child);
       });
-      toArray(parsed.querySelector('body').childNodes).forEach(function (child) {
+      toArray(parsed.querySelector("body").childNodes).forEach(function (
+        child
+      ) {
         elem.appendChild(child);
       });
     }
@@ -475,7 +594,11 @@
 
   var removeCustomClasses = function removeCustomClasses(elem, params) {
     toArray(elem.classList).forEach(function (className) {
-      if (!(objectValues(swalClasses).indexOf(className) !== -1) && !(objectValues(iconTypes).indexOf(className) !== -1) && !(objectValues(params.showClass).indexOf(className) !== -1)) {
+      if (
+        !(objectValues(swalClasses).indexOf(className) !== -1) &&
+        !(objectValues(iconTypes).indexOf(className) !== -1) &&
+        !(objectValues(params.showClass).indexOf(className) !== -1)
+      ) {
         elem.classList.remove(className);
       }
     });
@@ -485,8 +608,15 @@
     removeCustomClasses(elem, params);
 
     if (params.customClass && params.customClass[className]) {
-      if (typeof params.customClass[className] !== 'string' && !params.customClass[className].forEach) {
-        return warn("Invalid type of customClass.".concat(className, "! Expected string or iterable object, got \"").concat(_typeof(params.customClass[className]), "\""));
+      if (
+        typeof params.customClass[className] !== "string" &&
+        !params.customClass[className].forEach
+      ) {
+        return warn(
+          "Invalid type of customClass."
+            .concat(className, '! Expected string or iterable object, got "')
+            .concat(_typeof(params.customClass[className]), '"')
+        );
       }
 
       addClass(elem, params.customClass[className]);
@@ -498,18 +628,27 @@
     }
 
     switch (inputType) {
-      case 'select':
-      case 'textarea':
-      case 'file':
+      case "select":
+      case "textarea":
+      case "file":
         return getChildByClass(content, swalClasses[inputType]);
 
-      case 'checkbox':
-        return content.querySelector(".".concat(swalClasses.checkbox, " input"));
+      case "checkbox":
+        return content.querySelector(
+          ".".concat(swalClasses.checkbox, " input")
+        );
 
-      case 'radio':
-        return content.querySelector(".".concat(swalClasses.radio, " input:checked")) || content.querySelector(".".concat(swalClasses.radio, " input:first-child"));
+      case "radio":
+        return (
+          content.querySelector(
+            ".".concat(swalClasses.radio, " input:checked")
+          ) ||
+          content.querySelector(
+            ".".concat(swalClasses.radio, " input:first-child")
+          )
+        );
 
-      case 'range':
+      case "range":
         return content.querySelector(".".concat(swalClasses.range, " input"));
 
       default:
@@ -519,10 +658,10 @@
   var focusInput = function focusInput(input) {
     input.focus(); // place cursor at end of text in text input
 
-    if (input.type !== 'file') {
+    if (input.type !== "file") {
       // http://stackoverflow.com/a/2345915
       var val = input.value;
-      input.value = '';
+      input.value = "";
       input.value = val;
     }
   };
@@ -531,17 +670,21 @@
       return;
     }
 
-    if (typeof classList === 'string') {
+    if (typeof classList === "string") {
       classList = classList.split(/\s+/).filter(Boolean);
     }
 
     classList.forEach(function (className) {
       if (target.forEach) {
         target.forEach(function (elem) {
-          condition ? elem.classList.add(className) : elem.classList.remove(className);
+          condition
+            ? elem.classList.add(className)
+            : elem.classList.remove(className);
         });
       } else {
-        condition ? target.classList.add(className) : target.classList.remove(className);
+        condition
+          ? target.classList.add(className)
+          : target.classList.remove(className);
       }
     });
   };
@@ -558,28 +701,39 @@
       }
     }
   };
-  var applyNumericalStyle = function applyNumericalStyle(elem, property, value) {
+  var applyNumericalStyle = function applyNumericalStyle(
+    elem,
+    property,
+    value
+  ) {
     if (value || parseInt(value) === 0) {
-      elem.style[property] = typeof value === 'number' ? "".concat(value, "px") : value;
+      elem.style[property] =
+        typeof value === "number" ? "".concat(value, "px") : value;
     } else {
       elem.style.removeProperty(property);
     }
   };
   var show = function show(elem) {
-    var display = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'flex';
-    elem.style.opacity = '';
+    var display =
+      arguments.length > 1 && arguments[1] !== undefined
+        ? arguments[1]
+        : "flex";
+    elem.style.opacity = "";
     elem.style.display = display;
   };
   var hide = function hide(elem) {
-    elem.style.opacity = '';
-    elem.style.display = 'none';
+    elem.style.opacity = "";
+    elem.style.display = "none";
   };
   var toggle = function toggle(elem, condition, display) {
     condition ? show(elem, display) : hide(elem);
   }; // borrowed from jquery $(elem).is(':visible') implementation
 
   var isVisible = function isVisible(elem) {
-    return !!(elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length));
+    return !!(
+      elem &&
+      (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length)
+    );
   };
   /* istanbul ignore next */
 
@@ -589,48 +743,120 @@
 
   var hasCssAnimation = function hasCssAnimation(elem) {
     var style = window.getComputedStyle(elem);
-    var animDuration = parseFloat(style.getPropertyValue('animation-duration') || '0');
-    var transDuration = parseFloat(style.getPropertyValue('transition-duration') || '0');
+    var animDuration = parseFloat(
+      style.getPropertyValue("animation-duration") || "0"
+    );
+    var transDuration = parseFloat(
+      style.getPropertyValue("transition-duration") || "0"
+    );
     return animDuration > 0 || transDuration > 0;
   };
   var contains = function contains(haystack, needle) {
-    if (typeof haystack.contains === 'function') {
+    if (typeof haystack.contains === "function") {
       return haystack.contains(needle);
     }
   };
   var animateTimerProgressBar = function animateTimerProgressBar(timer) {
-    var reset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var reset =
+      arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     var timerProgressBar = getTimerProgressBar();
 
     if (isVisible(timerProgressBar)) {
       if (reset) {
-        timerProgressBar.style.transition = 'none';
-        timerProgressBar.style.width = '100%';
+        timerProgressBar.style.transition = "none";
+        timerProgressBar.style.width = "100%";
       }
 
       setTimeout(function () {
-        timerProgressBar.style.transition = "width ".concat(timer / 1000, "s linear");
-        timerProgressBar.style.width = '0%';
+        timerProgressBar.style.transition = "width ".concat(
+          timer / 1000,
+          "s linear"
+        );
+        timerProgressBar.style.width = "0%";
       }, 10);
     }
   };
   var stopTimerProgressBar = function stopTimerProgressBar() {
     var timerProgressBar = getTimerProgressBar();
-    var timerProgressBarWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
-    timerProgressBar.style.removeProperty('transition');
-    timerProgressBar.style.width = '100%';
-    var timerProgressBarFullWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
-    var timerProgressBarPercent = parseInt(timerProgressBarWidth / timerProgressBarFullWidth * 100);
-    timerProgressBar.style.removeProperty('transition');
+    var timerProgressBarWidth = parseInt(
+      window.getComputedStyle(timerProgressBar).width
+    );
+    timerProgressBar.style.removeProperty("transition");
+    timerProgressBar.style.width = "100%";
+    var timerProgressBarFullWidth = parseInt(
+      window.getComputedStyle(timerProgressBar).width
+    );
+    var timerProgressBarPercent = parseInt(
+      (timerProgressBarWidth / timerProgressBarFullWidth) * 100
+    );
+    timerProgressBar.style.removeProperty("transition");
     timerProgressBar.style.width = "".concat(timerProgressBarPercent, "%");
   };
 
   // Detect Node env
   var isNodeEnv = function isNodeEnv() {
-    return typeof window === 'undefined' || typeof document === 'undefined';
+    return typeof window === "undefined" || typeof document === "undefined";
   };
 
-  var sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <div class=\"").concat(swalClasses.header, "\">\n     <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.error, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.question, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.warning, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.info, "\"></div>\n     <div class=\"").concat(swalClasses.icon, " ").concat(iconTypes.success, "\"></div>\n     <img class=\"").concat(swalClasses.image, "\" />\n     <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n     <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.content, "\">\n     <div id=\"").concat(swalClasses.content, "\" class=\"").concat(swalClasses['html-container'], "\"></div>\n     <input class=\"").concat(swalClasses.input, "\" />\n     <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n     <div class=\"").concat(swalClasses.range, "\">\n       <input type=\"range\" />\n       <output></output>\n     </div>\n     <select class=\"").concat(swalClasses.select, "\"></select>\n     <div class=\"").concat(swalClasses.radio, "\"></div>\n     <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n       <input type=\"checkbox\" />\n       <span class=\"").concat(swalClasses.label, "\"></span>\n     </label>\n     <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n     <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   </div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\">OK</button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\">Cancel</button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar-container'], "\">\n     <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n   </div>\n </div>\n").replace(/(^|\n)\s*/g, '');
+  var sweetHTML = '\n <div aria-labelledby="'
+    .concat(swalClasses.title, '" aria-describedby="')
+    .concat(swalClasses.content, '" class="')
+    .concat(swalClasses.popup, '" tabindex="-1">\n   <div class="')
+    .concat(swalClasses.header, '">\n     <ul class="')
+    .concat(swalClasses["progress-steps"], '"></ul>\n     <div class="')
+    .concat(swalClasses.icon, " ")
+    .concat(iconTypes.error, '"></div>\n     <div class="')
+    .concat(swalClasses.icon, " ")
+    .concat(iconTypes.question, '"></div>\n     <div class="')
+    .concat(swalClasses.icon, " ")
+    .concat(iconTypes.warning, '"></div>\n     <div class="')
+    .concat(swalClasses.icon, " ")
+    .concat(iconTypes.info, '"></div>\n     <div class="')
+    .concat(swalClasses.icon, " ")
+    .concat(iconTypes.success, '"></div>\n     <img class="')
+    .concat(swalClasses.image, '" />\n     <h2 class="')
+    .concat(swalClasses.title, '" id="')
+    .concat(swalClasses.title, '"></h2>\n     <button type="button" class="')
+    .concat(swalClasses.close, '"></button>\n   </div>\n   <div class="')
+    .concat(swalClasses.content, '">\n     <div id="')
+    .concat(swalClasses.content, '" class="')
+    .concat(swalClasses["html-container"], '"></div>\n     <input class="')
+    .concat(swalClasses.input, '" />\n     <input type="file" class="')
+    .concat(swalClasses.file, '" />\n     <div class="')
+    .concat(
+      swalClasses.range,
+      '">\n       <input type="range" />\n       <output></output>\n     </div>\n     <select class="'
+    )
+    .concat(swalClasses.select, '"></select>\n     <div class="')
+    .concat(swalClasses.radio, '"></div>\n     <label for="')
+    .concat(swalClasses.checkbox, '" class="')
+    .concat(
+      swalClasses.checkbox,
+      '">\n       <input type="checkbox" />\n       <span class="'
+    )
+    .concat(
+      swalClasses.label,
+      '"></span>\n     </label>\n     <textarea class="'
+    )
+    .concat(swalClasses.textarea, '"></textarea>\n     <div class="')
+    .concat(swalClasses["validation-message"], '" id="')
+    .concat(
+      swalClasses["validation-message"],
+      '"></div>\n   </div>\n   <div class="'
+    )
+    .concat(swalClasses.actions, '">\n     <button type="button" class="')
+    .concat(
+      swalClasses.confirm,
+      '">OK</button>\n     <button type="button" class="'
+    )
+    .concat(swalClasses.cancel, '">Cancel</button>\n   </div>\n   <div class="')
+    .concat(swalClasses.footer, '"></div>\n   <div class="')
+    .concat(
+      swalClasses["timer-progress-bar-container"],
+      '">\n     <div class="'
+    )
+    .concat(swalClasses["timer-progress-bar"], '"></div>\n   </div>\n </div>\n')
+    .replace(/(^|\n)\s*/g, "");
 
   var resetOldContainer = function resetOldContainer() {
     var oldContainer = getContainer();
@@ -640,7 +866,14 @@
     }
 
     oldContainer.parentNode.removeChild(oldContainer);
-    removeClass([document.documentElement, document.body], [swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['has-column']]);
+    removeClass(
+      [document.documentElement, document.body],
+      [
+        swalClasses["no-backdrop"],
+        swalClasses["toast-shown"],
+        swalClasses["has-column"],
+      ]
+    );
     return true;
   };
 
@@ -659,9 +892,13 @@
     var input = getChildByClass(content, swalClasses.input);
     var file = getChildByClass(content, swalClasses.file);
     var range = content.querySelector(".".concat(swalClasses.range, " input"));
-    var rangeOutput = content.querySelector(".".concat(swalClasses.range, " output"));
+    var rangeOutput = content.querySelector(
+      ".".concat(swalClasses.range, " output")
+    );
     var select = getChildByClass(content, swalClasses.select);
-    var checkbox = content.querySelector(".".concat(swalClasses.checkbox, " input"));
+    var checkbox = content.querySelector(
+      ".".concat(swalClasses.checkbox, " input")
+    );
     var textarea = getChildByClass(content, swalClasses.textarea);
     input.oninput = resetValidationMessage;
     file.onchange = resetValidationMessage;
@@ -681,21 +918,21 @@
   };
 
   var getTarget = function getTarget(target) {
-    return typeof target === 'string' ? document.querySelector(target) : target;
+    return typeof target === "string" ? document.querySelector(target) : target;
   };
 
   var setupAccessibility = function setupAccessibility(params) {
     var popup = getPopup();
-    popup.setAttribute('role', params.toast ? 'alert' : 'dialog');
-    popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive');
+    popup.setAttribute("role", params.toast ? "alert" : "dialog");
+    popup.setAttribute("aria-live", params.toast ? "polite" : "assertive");
 
     if (!params.toast) {
-      popup.setAttribute('aria-modal', 'true');
+      popup.setAttribute("aria-modal", "true");
     }
   };
 
   var setupRTL = function setupRTL(targetElement) {
-    if (window.getComputedStyle(targetElement).direction === 'rtl') {
+    if (window.getComputedStyle(targetElement).direction === "rtl") {
       addClass(getContainer(), swalClasses.rtl);
     }
   };
@@ -703,22 +940,21 @@
    * Add modal + backdrop to DOM
    */
 
-
   var init = function init(params) {
     // Clean up the old popup container if it exists
     var oldContainerExisted = resetOldContainer();
     /* istanbul ignore if */
 
     if (isNodeEnv()) {
-      error('SweetAlert2 requires document to initialize');
+      error("SweetAlert2 requires document to initialize");
       return;
     }
 
-    var container = document.createElement('div');
+    var container = document.createElement("div");
     container.className = swalClasses.container;
 
     if (oldContainerExisted) {
-      addClass(container, swalClasses['no-transition']);
+      addClass(container, swalClasses["no-transition"]);
     }
 
     setInnerHtml(container, sweetHTML);
@@ -733,7 +969,7 @@
     // DOM element
     if (param instanceof HTMLElement) {
       target.appendChild(param); // Object
-    } else if (_typeof(param) === 'object') {
+    } else if (_typeof(param) === "object") {
       handleObject(param, target); // Plain string
     } else if (param) {
       setInnerHtml(target, param);
@@ -750,10 +986,10 @@
   };
 
   var handleJqueryElem = function handleJqueryElem(target, elem) {
-    target.textContent = '';
+    target.textContent = "";
 
     if (0 in elem) {
-      for (var i = 0; (i in elem); i++) {
+      for (var i = 0; i in elem; i++) {
         target.appendChild(elem[i].cloneNode(true));
       }
     } else {
@@ -761,7 +997,7 @@
     }
   };
 
-  var animationEndEvent = function () {
+  var animationEndEvent = (function () {
     // Prevent run in Node env
 
     /* istanbul ignore if */
@@ -769,29 +1005,33 @@
       return false;
     }
 
-    var testEl = document.createElement('div');
+    var testEl = document.createElement("div");
     var transEndEventNames = {
-      WebkitAnimation: 'webkitAnimationEnd',
-      OAnimation: 'oAnimationEnd oanimationend',
-      animation: 'animationend'
+      WebkitAnimation: "webkitAnimationEnd",
+      OAnimation: "oAnimationEnd oanimationend",
+      animation: "animationend",
     };
 
     for (var i in transEndEventNames) {
-      if (Object.prototype.hasOwnProperty.call(transEndEventNames, i) && typeof testEl.style[i] !== 'undefined') {
+      if (
+        Object.prototype.hasOwnProperty.call(transEndEventNames, i) &&
+        typeof testEl.style[i] !== "undefined"
+      ) {
         return transEndEventNames[i];
       }
     }
 
     return false;
-  }();
+  })();
 
   // https://github.com/twbs/bootstrap/blob/master/js/src/modal.js
 
   var measureScrollbar = function measureScrollbar() {
-    var scrollDiv = document.createElement('div');
-    scrollDiv.className = swalClasses['scrollbar-measure'];
+    var scrollDiv = document.createElement("div");
+    scrollDiv.className = swalClasses["scrollbar-measure"];
     document.body.appendChild(scrollDiv);
-    var scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+    var scrollbarWidth =
+      scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
     document.body.removeChild(scrollDiv);
     return scrollbarWidth;
   };
@@ -805,19 +1045,20 @@
       hide(actions);
     } // Custom class
 
+    applyCustomClass(actions, params, "actions"); // Render confirm button
 
-    applyCustomClass(actions, params, 'actions'); // Render confirm button
+    renderButton(confirmButton, "confirm", params); // render Cancel Button
 
-    renderButton(confirmButton, 'confirm', params); // render Cancel Button
-
-    renderButton(cancelButton, 'cancel', params);
+    renderButton(cancelButton, "cancel", params);
 
     if (params.buttonsStyling) {
       handleButtonsStyling(confirmButton, cancelButton, params);
     } else {
       removeClass([confirmButton, cancelButton], swalClasses.styled);
-      confirmButton.style.backgroundColor = confirmButton.style.borderLeftColor = confirmButton.style.borderRightColor = '';
-      cancelButton.style.backgroundColor = cancelButton.style.borderLeftColor = cancelButton.style.borderRightColor = '';
+      confirmButton.style.backgroundColor = confirmButton.style.borderLeftColor = confirmButton.style.borderRightColor =
+        "";
+      cancelButton.style.backgroundColor = cancelButton.style.borderLeftColor = cancelButton.style.borderRightColor =
+        "";
     }
 
     if (params.reverseButtons) {
@@ -836,19 +1077,27 @@
       cancelButton.style.backgroundColor = params.cancelButtonColor;
     } // Loading state
 
-
     if (!isLoading()) {
-      var confirmButtonBackgroundColor = window.getComputedStyle(confirmButton).getPropertyValue('background-color');
+      var confirmButtonBackgroundColor = window
+        .getComputedStyle(confirmButton)
+        .getPropertyValue("background-color");
       confirmButton.style.borderLeftColor = confirmButtonBackgroundColor;
       confirmButton.style.borderRightColor = confirmButtonBackgroundColor;
     }
   }
 
   function renderButton(button, buttonType, params) {
-    toggle(button, params["show".concat(capitalizeFirstLetter(buttonType), "Button")], 'inline-block');
+    toggle(
+      button,
+      params["show".concat(capitalizeFirstLetter(buttonType), "Button")],
+      "inline-block"
+    );
     setInnerHtml(button, params["".concat(buttonType, "ButtonText")]); // Set caption text
 
-    button.setAttribute('aria-label', params["".concat(buttonType, "ButtonAriaLabel")]); // ARIA label
+    button.setAttribute(
+      "aria-label",
+      params["".concat(buttonType, "ButtonAriaLabel")]
+    ); // ARIA label
     // Add buttons custom classes
 
     button.className = swalClasses[buttonType];
@@ -857,10 +1106,13 @@
   }
 
   function handleBackdropParam(container, backdrop) {
-    if (typeof backdrop === 'string') {
+    if (typeof backdrop === "string") {
       container.style.background = backdrop;
     } else if (!backdrop) {
-      addClass([document.documentElement, document.body], swalClasses['no-backdrop']);
+      addClass(
+        [document.documentElement, document.body],
+        swalClasses["no-backdrop"]
+      );
     }
   }
 
@@ -874,7 +1126,7 @@
   }
 
   function handleGrowParam(container, grow) {
-    if (grow && typeof grow === 'string') {
+    if (grow && typeof grow === "string") {
       var growClass = "grow-".concat(grow);
 
       if (growClass in swalClasses) {
@@ -893,19 +1145,21 @@
     handleBackdropParam(container, params.backdrop);
 
     if (!params.backdrop && params.allowOutsideClick) {
-      warn('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`');
+      warn(
+        '"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`'
+      );
     }
 
     handlePositionParam(container, params.position);
     handleGrowParam(container, params.grow); // Custom class
 
-    applyCustomClass(container, params, 'container'); // Set queue step attribute for getQueueStep() method
+    applyCustomClass(container, params, "container"); // Set queue step attribute for getQueueStep() method
 
-    var queueStep = document.body.getAttribute('data-swal2-queue-step');
+    var queueStep = document.body.getAttribute("data-swal2-queue-step");
 
     if (queueStep) {
-      container.setAttribute('data-queue-step', queueStep);
-      document.body.removeAttribute('data-swal2-queue-step');
+      container.setAttribute("data-queue-step", queueStep);
+      document.body.removeAttribute("data-swal2-queue-step");
     }
   };
 
@@ -921,10 +1175,18 @@
   var privateProps = {
     promise: new WeakMap(),
     innerParams: new WeakMap(),
-    domCache: new WeakMap()
+    domCache: new WeakMap(),
   };
 
-  var inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
+  var inputTypes = [
+    "input",
+    "file",
+    "range",
+    "select",
+    "radio",
+    "checkbox",
+    "textarea",
+  ];
   var renderInput = function renderInput(instance, params) {
     var content = getContent();
     var innerParams = privateProps.innerParams.get(instance);
@@ -947,14 +1209,18 @@
         showInput(params);
       } // set custom class
 
-
       setCustomClass(params);
     }
   };
 
   var showInput = function showInput(params) {
     if (!renderInputType[params.input]) {
-      return error("Unexpected type of input! Expected \"text\", \"email\", \"password\", \"number\", \"tel\", \"select\", \"radio\", \"checkbox\", \"textarea\", \"file\" or \"url\", got \"".concat(params.input, "\""));
+      return error(
+        'Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "'.concat(
+          params.input,
+          '"'
+        )
+      );
     }
 
     var inputContainer = getInputContainer(params.input);
@@ -970,7 +1236,7 @@
     for (var i = 0; i < input.attributes.length; i++) {
       var attrName = input.attributes[i].name;
 
-      if (!(['type', 'value', 'style'].indexOf(attrName) !== -1)) {
+      if (!(["type", "value", "style"].indexOf(attrName) !== -1)) {
         input.removeAttribute(attrName);
       }
     }
@@ -988,7 +1254,7 @@
     for (var attr in inputAttributes) {
       // Do not set a placeholder for <input type="range">
       // it'll crash Edge, #1298
-      if (inputType === 'range' && attr === 'placeholder') {
+      if (inputType === "range" && attr === "placeholder") {
         continue;
       }
 
@@ -1011,17 +1277,30 @@
   };
 
   var getInputContainer = function getInputContainer(inputType) {
-    var inputClass = swalClasses[inputType] ? swalClasses[inputType] : swalClasses.input;
+    var inputClass = swalClasses[inputType]
+      ? swalClasses[inputType]
+      : swalClasses.input;
     return getChildByClass(getContent(), inputClass);
   };
 
   var renderInputType = {};
 
-  renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = function (input, params) {
-    if (typeof params.inputValue === 'string' || typeof params.inputValue === 'number') {
+  renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = function (
+    input,
+    params
+  ) {
+    if (
+      typeof params.inputValue === "string" ||
+      typeof params.inputValue === "number"
+    ) {
       input.value = params.inputValue;
     } else if (!isPromise(params.inputValue)) {
-      warn("Unexpected type of inputValue! Expected \"string\", \"number\" or \"Promise\", got \"".concat(_typeof(params.inputValue), "\""));
+      warn(
+        'Unexpected type of inputValue! Expected "string", "number" or "Promise", got "'.concat(
+          _typeof(params.inputValue),
+          '"'
+        )
+      );
     }
 
     setInputPlaceholder(input, params);
@@ -1035,8 +1314,8 @@
   };
 
   renderInputType.range = function (range, params) {
-    var rangeInput = range.querySelector('input');
-    var rangeOutput = range.querySelector('output');
+    var rangeInput = range.querySelector("input");
+    var rangeOutput = range.querySelector("output");
     rangeInput.value = params.inputValue;
     rangeInput.type = params.input;
     rangeOutput.value = params.inputValue;
@@ -1044,12 +1323,12 @@
   };
 
   renderInputType.select = function (select, params) {
-    select.textContent = '';
+    select.textContent = "";
 
     if (params.inputPlaceholder) {
-      var placeholder = document.createElement('option');
+      var placeholder = document.createElement("option");
       setInnerHtml(placeholder, params.inputPlaceholder);
-      placeholder.value = '';
+      placeholder.value = "";
       placeholder.disabled = true;
       placeholder.selected = true;
       select.appendChild(placeholder);
@@ -1059,16 +1338,16 @@
   };
 
   renderInputType.radio = function (radio) {
-    radio.textContent = '';
+    radio.textContent = "";
     return radio;
   };
 
   renderInputType.checkbox = function (checkboxContainer, params) {
-    var checkbox = getInput(getContent(), 'checkbox');
+    var checkbox = getInput(getContent(), "checkbox");
     checkbox.value = 1;
     checkbox.id = swalClasses.checkbox;
     checkbox.checked = Boolean(params.inputValue);
-    var label = checkboxContainer.querySelector('span');
+    var label = checkboxContainer.querySelector("span");
     setInnerHtml(label, params.inputPlaceholder);
     return checkboxContainer;
   };
@@ -1077,10 +1356,14 @@
     textarea.value = params.inputValue;
     setInputPlaceholder(textarea, params);
 
-    if ('MutationObserver' in window) {
+    if ("MutationObserver" in window) {
       // #1699
-      var initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
-      var popupPadding = parseInt(window.getComputedStyle(getPopup()).paddingLeft) + parseInt(window.getComputedStyle(getPopup()).paddingRight);
+      var initialPopupWidth = parseInt(
+        window.getComputedStyle(getPopup()).width
+      );
+      var popupPadding =
+        parseInt(window.getComputedStyle(getPopup()).paddingLeft) +
+        parseInt(window.getComputedStyle(getPopup()).paddingRight);
 
       var outputsize = function outputsize() {
         var contentWidth = textarea.offsetWidth + popupPadding;
@@ -1094,7 +1377,7 @@
 
       new MutationObserver(outputsize).observe(textarea, {
         attributes: true,
-        attributeFilter: ['style']
+        attributeFilter: ["style"],
       });
     }
 
@@ -1106,17 +1389,17 @@
 
     if (params.html) {
       parseHtmlToContainer(params.html, content);
-      show(content, 'block'); // Content as plain text
+      show(content, "block"); // Content as plain text
     } else if (params.text) {
       content.textContent = params.text;
-      show(content, 'block'); // No content
+      show(content, "block"); // No content
     } else {
       hide(content);
     }
 
     renderInput(instance, params); // Custom class
 
-    applyCustomClass(getContent(), params, 'content');
+    applyCustomClass(getContent(), params, "content");
   };
 
   var renderFooter = function renderFooter(instance, params) {
@@ -1127,24 +1410,23 @@
       parseHtmlToContainer(params.footer, footer);
     } // Custom class
 
-
-    applyCustomClass(footer, params, 'footer');
+    applyCustomClass(footer, params, "footer");
   };
 
   var renderCloseButton = function renderCloseButton(instance, params) {
     var closeButton = getCloseButton();
     setInnerHtml(closeButton, params.closeButtonHtml); // Custom class
 
-    applyCustomClass(closeButton, params, 'closeButton');
+    applyCustomClass(closeButton, params, "closeButton");
     toggle(closeButton, params.showCloseButton);
-    closeButton.setAttribute('aria-label', params.closeButtonAriaLabel);
+    closeButton.setAttribute("aria-label", params.closeButtonAriaLabel);
   };
 
   var renderIcon = function renderIcon(instance, params) {
     var innerParams = privateProps.innerParams.get(instance); // if the give icon already rendered, apply the custom class without re-rendering the icon
 
     if (innerParams && params.icon === innerParams.icon && getIcon()) {
-      applyCustomClass(getIcon(), params, 'icon');
+      applyCustomClass(getIcon(), params, "icon");
       return;
     }
 
@@ -1155,17 +1437,24 @@
     }
 
     if (Object.keys(iconTypes).indexOf(params.icon) !== -1) {
-      var icon = elementBySelector(".".concat(swalClasses.icon, ".").concat(iconTypes[params.icon]));
+      var icon = elementBySelector(
+        ".".concat(swalClasses.icon, ".").concat(iconTypes[params.icon])
+      );
       show(icon); // Custom or default content
 
       setContent(icon, params);
       adjustSuccessIconBackgoundColor(); // Custom class
 
-      applyCustomClass(icon, params, 'icon'); // Animate icon
+      applyCustomClass(icon, params, "icon"); // Animate icon
 
       addClass(icon, params.showClass.icon);
     } else {
-      error("Unknown icon! Expected \"success\", \"error\", \"warning\", \"info\" or \"question\", got \"".concat(params.icon, "\""));
+      error(
+        'Unknown icon! Expected "success", "error", "warning", "info" or "question", got "'.concat(
+          params.icon,
+          '"'
+        )
+      );
     }
   };
 
@@ -1177,11 +1466,14 @@
     }
   }; // Adjust success icon background color to match the popup background color
 
-
   var adjustSuccessIconBackgoundColor = function adjustSuccessIconBackgoundColor() {
     var popup = getPopup();
-    var popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
-    var successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
+    var popupBackgroundColor = window
+      .getComputedStyle(popup)
+      .getPropertyValue("background-color");
+    var successIconParts = popup.querySelectorAll(
+      "[class^=swal2-success-circular-line], .swal2-success-fix"
+    );
 
     for (var i = 0; i < successIconParts.length; i++) {
       successIconParts[i].style.backgroundColor = popupBackgroundColor;
@@ -1189,26 +1481,34 @@
   };
 
   var setContent = function setContent(icon, params) {
-    icon.textContent = '';
+    icon.textContent = "";
 
     if (params.iconHtml) {
       setInnerHtml(icon, iconContent(params.iconHtml));
-    } else if (params.icon === 'success') {
-      setInnerHtml(icon, "\n      <div class=\"swal2-success-circular-line-left\"></div>\n      <span class=\"swal2-success-line-tip\"></span> <span class=\"swal2-success-line-long\"></span>\n      <div class=\"swal2-success-ring\"></div> <div class=\"swal2-success-fix\"></div>\n      <div class=\"swal2-success-circular-line-right\"></div>\n    ");
-    } else if (params.icon === 'error') {
-      setInnerHtml(icon, "\n      <span class=\"swal2-x-mark\">\n        <span class=\"swal2-x-mark-line-left\"></span>\n        <span class=\"swal2-x-mark-line-right\"></span>\n      </span>\n    ");
+    } else if (params.icon === "success") {
+      setInnerHtml(
+        icon,
+        '\n      <div class="swal2-success-circular-line-left"></div>\n      <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>\n      <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>\n      <div class="swal2-success-circular-line-right"></div>\n    '
+      );
+    } else if (params.icon === "error") {
+      setInnerHtml(
+        icon,
+        '\n      <span class="swal2-x-mark">\n        <span class="swal2-x-mark-line-left"></span>\n        <span class="swal2-x-mark-line-right"></span>\n      </span>\n    '
+      );
     } else {
       var defaultIconHtml = {
-        question: '?',
-        warning: '!',
-        info: 'i'
+        question: "?",
+        warning: "!",
+        info: "i",
       };
       setInnerHtml(icon, iconContent(defaultIconHtml[params.icon]));
     }
   };
 
   var iconContent = function iconContent(content) {
-    return "<div class=\"".concat(swalClasses['icon-content'], "\">").concat(content, "</div>");
+    return '<div class="'
+      .concat(swalClasses["icon-content"], '">')
+      .concat(content, "</div>");
   };
 
   var renderImage = function renderImage(instance, params) {
@@ -1218,16 +1518,16 @@
       return hide(image);
     }
 
-    show(image, ''); // Src, alt
+    show(image, ""); // Src, alt
 
-    image.setAttribute('src', params.imageUrl);
-    image.setAttribute('alt', params.imageAlt); // Width, height
+    image.setAttribute("src", params.imageUrl);
+    image.setAttribute("alt", params.imageAlt); // Width, height
 
-    applyNumericalStyle(image, 'width', params.imageWidth);
-    applyNumericalStyle(image, 'height', params.imageHeight); // Class
+    applyNumericalStyle(image, "width", params.imageWidth);
+    applyNumericalStyle(image, "height", params.imageHeight); // Class
 
     image.className = swalClasses.image;
-    applyCustomClass(image, params, 'image');
+    applyCustomClass(image, params, "image");
   };
 
   var currentSteps = [];
@@ -1248,20 +1548,20 @@
     return new Promise(function (resolve) {
       (function step(i, callback) {
         if (i < currentSteps.length) {
-          document.body.setAttribute('data-swal2-queue-step', i);
+          document.body.setAttribute("data-swal2-queue-step", i);
           Swal.fire(currentSteps[i]).then(function (result) {
-            if (typeof result.value !== 'undefined') {
+            if (typeof result.value !== "undefined") {
               queueResult.push(result.value);
               step(i + 1, callback);
             } else {
               resetAndResolve(resolve, {
-                dismiss: result.dismiss
+                dismiss: result.dismiss,
               });
             }
           });
         } else {
           resetAndResolve(resolve, {
-            value: queueResult
+            value: queueResult,
           });
         }
       })(0);
@@ -1272,7 +1572,7 @@
    */
 
   var getQueueStep = function getQueueStep() {
-    return getContainer() && getContainer().getAttribute('data-queue-step');
+    return getContainer() && getContainer().getAttribute("data-queue-step");
   };
   /*
    * Global function for inserting a popup to the queue
@@ -1290,21 +1590,21 @@
    */
 
   var deleteQueueStep = function deleteQueueStep(index) {
-    if (typeof currentSteps[index] !== 'undefined') {
+    if (typeof currentSteps[index] !== "undefined") {
       currentSteps.splice(index, 1);
     }
   };
 
   var createStepElement = function createStepElement(step) {
-    var stepEl = document.createElement('li');
-    addClass(stepEl, swalClasses['progress-step']);
+    var stepEl = document.createElement("li");
+    addClass(stepEl, swalClasses["progress-step"]);
     setInnerHtml(stepEl, step);
     return stepEl;
   };
 
   var createLineElement = function createLineElement(params) {
-    var lineEl = document.createElement('li');
-    addClass(lineEl, swalClasses['progress-step-line']);
+    var lineEl = document.createElement("li");
+    addClass(lineEl, swalClasses["progress-step-line"]);
 
     if (params.progressStepsDistance) {
       lineEl.style.width = params.progressStepsDistance;
@@ -1321,11 +1621,18 @@
     }
 
     show(progressStepsContainer);
-    progressStepsContainer.textContent = '';
-    var currentProgressStep = parseInt(params.currentProgressStep === undefined ? getQueueStep() : params.currentProgressStep);
+    progressStepsContainer.textContent = "";
+    var currentProgressStep = parseInt(
+      params.currentProgressStep === undefined
+        ? getQueueStep()
+        : params.currentProgressStep
+    );
 
     if (currentProgressStep >= params.progressSteps.length) {
-      warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
+      warn(
+        "Invalid currentProgressStep parameter, it should be less than progressSteps.length " +
+          "(currentProgressStep like JS arrays starts from 0)"
+      );
     }
 
     params.progressSteps.forEach(function (step, index) {
@@ -1333,7 +1640,7 @@
       progressStepsContainer.appendChild(stepEl);
 
       if (index === currentProgressStep) {
-        addClass(stepEl, swalClasses['active-progress-step']);
+        addClass(stepEl, swalClasses["active-progress-step"]);
       }
 
       if (index !== params.progressSteps.length - 1) {
@@ -1355,14 +1662,13 @@
       title.innerText = params.titleText;
     } // Custom class
 
-
-    applyCustomClass(title, params, 'title');
+    applyCustomClass(title, params, "title");
   };
 
   var renderHeader = function renderHeader(instance, params) {
     var header = getHeader(); // Custom class
 
-    applyCustomClass(header, params, 'header'); // Progress steps
+    applyCustomClass(header, params, "header"); // Progress steps
 
     renderProgressSteps(instance, params); // Icon
 
@@ -1378,36 +1684,38 @@
   var renderPopup = function renderPopup(instance, params) {
     var popup = getPopup(); // Width
 
-    applyNumericalStyle(popup, 'width', params.width); // Padding
+    applyNumericalStyle(popup, "width", params.width); // Padding
 
-    applyNumericalStyle(popup, 'padding', params.padding); // Background
+    applyNumericalStyle(popup, "padding", params.padding); // Background
 
     if (params.background) {
       popup.style.background = params.background;
     } // Classes
-
 
     addClasses(popup, params);
   };
 
   var addClasses = function addClasses(popup, params) {
     // Default Class + showClass when updating Swal.update({})
-    popup.className = "".concat(swalClasses.popup, " ").concat(isVisible(popup) ? params.showClass.popup : '');
+    popup.className = ""
+      .concat(swalClasses.popup, " ")
+      .concat(isVisible(popup) ? params.showClass.popup : "");
 
     if (params.toast) {
-      addClass([document.documentElement, document.body], swalClasses['toast-shown']);
+      addClass(
+        [document.documentElement, document.body],
+        swalClasses["toast-shown"]
+      );
       addClass(popup, swalClasses.toast);
     } else {
       addClass(popup, swalClasses.modal);
     } // Custom class
 
+    applyCustomClass(popup, params, "popup");
 
-    applyCustomClass(popup, params, 'popup');
-
-    if (typeof params.customClass === 'string') {
+    if (typeof params.customClass === "string") {
       addClass(popup, params.customClass);
     } // Icon class (#1842)
-
 
     if (params.icon) {
       addClass(popup, swalClasses["icon-".concat(params.icon)]);
@@ -1422,7 +1730,7 @@
     renderActions(instance, params);
     renderFooter(instance, params);
 
-    if (typeof params.onRender === 'function') {
+    if (typeof params.onRender === "function") {
       params.onRender(getPopup());
     }
   };
@@ -1452,7 +1760,11 @@
   function fire() {
     var Swal = this;
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    for (
+      var _len = arguments.length, args = new Array(_len), _key = 0;
+      _key < _len;
+      _key++
+    ) {
       args[_key] = arguments[_key];
     }
 
@@ -1478,7 +1790,7 @@
    * @param mixinParams
    */
   function mixin(mixinParams) {
-    var MixinSwal = /*#__PURE__*/function (_this) {
+    var MixinSwal = /*#__PURE__*/ (function (_this) {
       _inherits(MixinSwal, _this);
 
       var _super = _createSuper(MixinSwal);
@@ -1489,15 +1801,21 @@
         return _super.apply(this, arguments);
       }
 
-      _createClass(MixinSwal, [{
-        key: "_main",
-        value: function _main(params) {
-          return _get(_getPrototypeOf(MixinSwal.prototype), "_main", this).call(this, _extends({}, mixinParams, params));
-        }
-      }]);
+      _createClass(MixinSwal, [
+        {
+          key: "_main",
+          value: function _main(params) {
+            return _get(
+              _getPrototypeOf(MixinSwal.prototype),
+              "_main",
+              this
+            ).call(this, _extends({}, mixinParams, params));
+          },
+        },
+      ]);
 
       return MixinSwal;
-    }(this);
+    })(this);
 
     return MixinSwal;
   }
@@ -1517,11 +1835,11 @@
     var actions = getActions();
     var confirmButton = getConfirmButton();
     show(actions);
-    show(confirmButton, 'inline-block');
+    show(confirmButton, "inline-block");
     addClass([popup, actions], swalClasses.loading);
     confirmButton.disabled = true;
-    popup.setAttribute('data-loading', true);
-    popup.setAttribute('aria-busy', true);
+    popup.setAttribute("data-loading", true);
+    popup.setAttribute("aria-busy", true);
     popup.focus();
   };
 
@@ -1530,14 +1848,16 @@
   var globalState = {};
 
   var focusPreviousActiveElement = function focusPreviousActiveElement() {
-    if (globalState.previousActiveElement && globalState.previousActiveElement.focus) {
+    if (
+      globalState.previousActiveElement &&
+      globalState.previousActiveElement.focus
+    ) {
       globalState.previousActiveElement.focus();
       globalState.previousActiveElement = null;
     } else if (document.body) {
       document.body.focus();
     }
   }; // Restore previous active (focused) element
-
 
   var restoreActiveElement = function restoreActiveElement() {
     return new Promise(function (resolve) {
@@ -1550,7 +1870,7 @@
 
       /* istanbul ignore if */
 
-      if (typeof x !== 'undefined' && typeof y !== 'undefined') {
+      if (typeof x !== "undefined" && typeof y !== "undefined") {
         // IE doesn't have scrollX/scrollY support
         window.scrollTo(x, y);
       }
@@ -1620,27 +1940,27 @@
   };
 
   var defaultParams = {
-    title: '',
-    titleText: '',
-    text: '',
-    html: '',
-    footer: '',
+    title: "",
+    titleText: "",
+    text: "",
+    html: "",
+    footer: "",
     icon: undefined,
     iconHtml: undefined,
     toast: false,
     animation: true,
     showClass: {
-      popup: 'swal2-show',
-      backdrop: 'swal2-backdrop-show',
-      icon: 'swal2-icon-show'
+      popup: "swal2-show",
+      backdrop: "swal2-backdrop-show",
+      icon: "swal2-icon-show",
     },
     hideClass: {
-      popup: 'swal2-hide',
-      backdrop: 'swal2-backdrop-hide',
-      icon: 'swal2-icon-hide'
+      popup: "swal2-hide",
+      backdrop: "swal2-backdrop-hide",
+      icon: "swal2-icon-hide",
     },
     customClass: undefined,
-    target: 'body',
+    target: "body",
     backdrop: true,
     heightAuto: true,
     allowOutsideClick: true,
@@ -1651,39 +1971,39 @@
     showConfirmButton: true,
     showCancelButton: false,
     preConfirm: undefined,
-    confirmButtonText: 'OK',
-    confirmButtonAriaLabel: '',
+    confirmButtonText: "OK",
+    confirmButtonAriaLabel: "",
     confirmButtonColor: undefined,
-    cancelButtonText: 'Cancel',
-    cancelButtonAriaLabel: '',
+    cancelButtonText: "Cancel",
+    cancelButtonAriaLabel: "",
     cancelButtonColor: undefined,
     buttonsStyling: true,
     reverseButtons: false,
     focusConfirm: true,
     focusCancel: false,
     showCloseButton: false,
-    closeButtonHtml: '&times;',
-    closeButtonAriaLabel: 'Close this dialog',
+    closeButtonHtml: "&times;",
+    closeButtonAriaLabel: "Close this dialog",
     showLoaderOnConfirm: false,
     imageUrl: undefined,
     imageWidth: undefined,
     imageHeight: undefined,
-    imageAlt: '',
+    imageAlt: "",
     timer: undefined,
     timerProgressBar: false,
     width: undefined,
     padding: undefined,
     background: undefined,
     input: undefined,
-    inputPlaceholder: '',
-    inputValue: '',
+    inputPlaceholder: "",
+    inputValue: "",
     inputOptions: {},
     inputAutoTrim: true,
     inputAttributes: {},
     inputValidator: undefined,
     validationMessage: undefined,
     grow: false,
-    position: 'center',
+    position: "center",
     progressSteps: [],
     currentProgressStep: undefined,
     progressStepsDistance: undefined,
@@ -1693,13 +2013,51 @@
     onClose: undefined,
     onAfterClose: undefined,
     onDestroy: undefined,
-    scrollbarPadding: true
+    scrollbarPadding: true,
   };
-  var updatableParams = ['title', 'titleText', 'text', 'html', 'footer', 'icon', 'hideClass', 'customClass', 'allowOutsideClick', 'allowEscapeKey', 'showConfirmButton', 'showCancelButton', 'confirmButtonText', 'confirmButtonAriaLabel', 'confirmButtonColor', 'cancelButtonText', 'cancelButtonAriaLabel', 'cancelButtonColor', 'buttonsStyling', 'reverseButtons', 'imageUrl', 'imageWidth', 'imageHeight', 'imageAlt', 'progressSteps', 'currentProgressStep', 'onClose', 'onAfterClose', 'onDestroy'];
+  var updatableParams = [
+    "title",
+    "titleText",
+    "text",
+    "html",
+    "footer",
+    "icon",
+    "hideClass",
+    "customClass",
+    "allowOutsideClick",
+    "allowEscapeKey",
+    "showConfirmButton",
+    "showCancelButton",
+    "confirmButtonText",
+    "confirmButtonAriaLabel",
+    "confirmButtonColor",
+    "cancelButtonText",
+    "cancelButtonAriaLabel",
+    "cancelButtonColor",
+    "buttonsStyling",
+    "reverseButtons",
+    "imageUrl",
+    "imageWidth",
+    "imageHeight",
+    "imageAlt",
+    "progressSteps",
+    "currentProgressStep",
+    "onClose",
+    "onAfterClose",
+    "onDestroy",
+  ];
   var deprecatedParams = {
-    animation: 'showClass" and "hideClass'
+    animation: 'showClass" and "hideClass',
   };
-  var toastIncompatibleParams = ['allowOutsideClick', 'allowEnterKey', 'backdrop', 'focusConfirm', 'focusCancel', 'heightAuto', 'keydownListenerCapture'];
+  var toastIncompatibleParams = [
+    "allowOutsideClick",
+    "allowEnterKey",
+    "backdrop",
+    "focusConfirm",
+    "focusCancel",
+    "heightAuto",
+    "keydownListenerCapture",
+  ];
   /**
    * Is valid parameter
    * @param {String} paramName
@@ -1727,13 +2085,13 @@
 
   var checkIfParamIsValid = function checkIfParamIsValid(param) {
     if (!isValidParameter(param)) {
-      warn("Unknown parameter \"".concat(param, "\""));
+      warn('Unknown parameter "'.concat(param, '"'));
     }
   };
 
   var checkIfToastParamIsValid = function checkIfToastParamIsValid(param) {
     if (toastIncompatibleParams.indexOf(param) !== -1) {
-      warn("The parameter \"".concat(param, "\" is incompatible with toasts"));
+      warn('The parameter "'.concat(param, '" is incompatible with toasts'));
     }
   };
 
@@ -1748,7 +2106,6 @@
    * @param params
    */
 
-
   var showWarningsForParams = function showWarningsForParams(params) {
     for (var param in params) {
       checkIfParamIsValid(param);
@@ -1761,9 +2118,7 @@
     }
   };
 
-
-
-  var staticMethods = /*#__PURE__*/Object.freeze({
+  var staticMethods = /*#__PURE__*/ Object.freeze({
     isValidParameter: isValidParameter,
     isUpdatableParameter: isUpdatableParameter,
     isDeprecatedParameter: isDeprecatedParameter,
@@ -1802,7 +2157,7 @@
     resumeTimer: resumeTimer,
     toggleTimer: toggleTimer,
     increaseTimer: increaseTimer,
-    isTimerRunning: isTimerRunning
+    isTimerRunning: isTimerRunning,
   });
 
   /**
@@ -1828,8 +2183,8 @@
     }
 
     removeClass([domCache.popup, domCache.actions], swalClasses.loading);
-    domCache.popup.removeAttribute('aria-busy');
-    domCache.popup.removeAttribute('data-loading');
+    domCache.popup.removeAttribute("aria-busy");
+    domCache.popup.removeAttribute("data-loading");
     domCache.confirmButton.disabled = false;
     domCache.cancelButton.disabled = false;
   }
@@ -1851,16 +2206,23 @@
       return;
     } // if the body has overflow
 
-
     if (document.body.scrollHeight > window.innerHeight) {
       // add padding so the content doesn't shift after removal of scrollbar
-      states.previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
-      document.body.style.paddingRight = "".concat(states.previousBodyPadding + measureScrollbar(), "px");
+      states.previousBodyPadding = parseInt(
+        window.getComputedStyle(document.body).getPropertyValue("padding-right")
+      );
+      document.body.style.paddingRight = "".concat(
+        states.previousBodyPadding + measureScrollbar(),
+        "px"
+      );
     }
   };
   var undoScrollbar = function undoScrollbar() {
     if (states.previousBodyPadding !== null) {
-      document.body.style.paddingRight = "".concat(states.previousBodyPadding, "px");
+      document.body.style.paddingRight = "".concat(
+        states.previousBodyPadding,
+        "px"
+      );
       states.previousBodyPadding = null;
     }
   };
@@ -1868,7 +2230,9 @@
   /* istanbul ignore file */
 
   var iOSfix = function iOSfix() {
-    var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+    var iOS =
+      (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
 
     if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
       var offset = document.body.scrollTop;
@@ -1880,7 +2244,9 @@
   };
 
   var addBottomPaddingForTallPopups = function addBottomPaddingForTallPopups() {
-    var safari = !navigator.userAgent.match(/(CriOS|FxiOS|EdgiOS|YaBrowser|UCBrowser)/i);
+    var safari = !navigator.userAgent.match(
+      /(CriOS|FxiOS|EdgiOS|YaBrowser|UCBrowser)/i
+    );
 
     if (safari) {
       var bottomPanelHeight = 44;
@@ -1915,9 +2281,14 @@
       return true;
     }
 
-    if (!isScrollable(container) && target.tagName !== 'INPUT' && // #1603
-    !(isScrollable(getContent()) && // #1944
-    getContent().contains(target))) {
+    if (
+      !isScrollable(container) &&
+      target.tagName !== "INPUT" && // #1603
+      !(
+        isScrollable(getContent()) && // #1944
+        getContent().contains(target)
+      )
+    ) {
       return true;
     }
 
@@ -1928,7 +2299,7 @@
     if (hasClass(document.body, swalClasses.iosfix)) {
       var offset = parseInt(document.body.style.top, 10);
       removeClass(document.body, swalClasses.iosfix);
-      document.body.style.top = '';
+      document.body.style.top = "";
       document.body.scrollTop = offset * -1;
     }
   };
@@ -1939,26 +2310,25 @@
     return !!window.MSInputMethodContext && !!document.documentMode;
   }; // Fix IE11 centering sweetalert2/issues/933
 
-
   var fixVerticalPositionIE = function fixVerticalPositionIE() {
     var container = getContainer();
     var popup = getPopup();
-    container.style.removeProperty('align-items');
+    container.style.removeProperty("align-items");
 
     if (popup.offsetTop < 0) {
-      container.style.alignItems = 'flex-start';
+      container.style.alignItems = "flex-start";
     }
   };
 
   var IEfix = function IEfix() {
-    if (typeof window !== 'undefined' && isIE11()) {
+    if (typeof window !== "undefined" && isIE11()) {
       fixVerticalPositionIE();
-      window.addEventListener('resize', fixVerticalPositionIE);
+      window.addEventListener("resize", fixVerticalPositionIE);
     }
   };
   var undoIEfix = function undoIEfix() {
-    if (typeof window !== 'undefined' && isIE11()) {
-      window.removeEventListener('resize', fixVerticalPositionIE);
+    if (typeof window !== "undefined" && isIE11()) {
+      window.removeEventListener("resize", fixVerticalPositionIE);
     }
   };
 
@@ -1973,21 +2343,27 @@
         return;
       }
 
-      if (el.hasAttribute('aria-hidden')) {
-        el.setAttribute('data-previous-aria-hidden', el.getAttribute('aria-hidden'));
+      if (el.hasAttribute("aria-hidden")) {
+        el.setAttribute(
+          "data-previous-aria-hidden",
+          el.getAttribute("aria-hidden")
+        );
       }
 
-      el.setAttribute('aria-hidden', 'true');
+      el.setAttribute("aria-hidden", "true");
     });
   };
   var unsetAriaHidden = function unsetAriaHidden() {
     var bodyChildren = toArray(document.body.children);
     bodyChildren.forEach(function (el) {
-      if (el.hasAttribute('data-previous-aria-hidden')) {
-        el.setAttribute('aria-hidden', el.getAttribute('data-previous-aria-hidden'));
-        el.removeAttribute('data-previous-aria-hidden');
+      if (el.hasAttribute("data-previous-aria-hidden")) {
+        el.setAttribute(
+          "aria-hidden",
+          el.getAttribute("data-previous-aria-hidden")
+        );
+        el.removeAttribute("data-previous-aria-hidden");
       } else {
-        el.removeAttribute('aria-hidden');
+        el.removeAttribute("aria-hidden");
       }
     });
   };
@@ -2002,27 +2378,39 @@
    *   then we can use that language feature.
    */
   var privateMethods = {
-    swalPromiseResolve: new WeakMap()
+    swalPromiseResolve: new WeakMap(),
   };
 
   /*
    * Instance method to close sweetAlert
    */
 
-  function removePopupAndResetState(instance, container, isToast$$1, onAfterClose) {
+  function removePopupAndResetState(
+    instance,
+    container,
+    isToast$$1,
+    onAfterClose
+  ) {
     if (isToast$$1) {
       triggerOnAfterCloseAndDispose(instance, onAfterClose);
     } else {
       restoreActiveElement().then(function () {
         return triggerOnAfterCloseAndDispose(instance, onAfterClose);
       });
-      globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
-        capture: globalState.keydownListenerCapture
-      });
+      globalState.keydownTarget.removeEventListener(
+        "keydown",
+        globalState.keydownHandler,
+        {
+          capture: globalState.keydownListenerCapture,
+        }
+      );
       globalState.keydownHandlerAdded = false;
     }
 
-    if (container.parentNode && !document.body.getAttribute('data-swal2-queue-step')) {
+    if (
+      container.parentNode &&
+      !document.body.getAttribute("data-swal2-queue-step")
+    ) {
       container.parentNode.removeChild(container);
     }
 
@@ -2037,7 +2425,16 @@
   }
 
   function removeBodyClasses() {
-    removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['height-auto'], swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['toast-column']]);
+    removeClass(
+      [document.documentElement, document.body],
+      [
+        swalClasses.shown,
+        swalClasses["height-auto"],
+        swalClasses["no-backdrop"],
+        swalClasses["toast-shown"],
+        swalClasses["toast-column"],
+      ]
+    );
   }
 
   function close(resolveValue) {
@@ -2061,28 +2458,31 @@
     addClass(backdrop, innerParams.hideClass.backdrop);
     handlePopupAnimation(this, popup, innerParams);
 
-    if (typeof resolveValue !== 'undefined') {
-      resolveValue.isDismissed = typeof resolveValue.dismiss !== 'undefined';
-      resolveValue.isConfirmed = typeof resolveValue.dismiss === 'undefined';
+    if (typeof resolveValue !== "undefined") {
+      resolveValue.isDismissed = typeof resolveValue.dismiss !== "undefined";
+      resolveValue.isConfirmed = typeof resolveValue.dismiss === "undefined";
     } else {
       resolveValue = {
         isDismissed: true,
-        isConfirmed: false
+        isConfirmed: false,
       };
     } // Resolve Swal promise
-
 
     swalPromiseResolve(resolveValue || {});
   }
 
-  var handlePopupAnimation = function handlePopupAnimation(instance, popup, innerParams) {
+  var handlePopupAnimation = function handlePopupAnimation(
+    instance,
+    popup,
+    innerParams
+  ) {
     var container = getContainer(); // If animation is supported, animate
 
     var animationIsSupported = animationEndEvent && hasCssAnimation(popup);
     var onClose = innerParams.onClose,
-        onAfterClose = innerParams.onAfterClose;
+      onAfterClose = innerParams.onAfterClose;
 
-    if (onClose !== null && typeof onClose === 'function') {
+    if (onClose !== null && typeof onClose === "function") {
       onClose(popup);
     }
 
@@ -2094,8 +2494,19 @@
     }
   };
 
-  var animatePopup = function animatePopup(instance, popup, container, onAfterClose) {
-    globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, isToast(), onAfterClose);
+  var animatePopup = function animatePopup(
+    instance,
+    popup,
+    container,
+    onAfterClose
+  ) {
+    globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(
+      null,
+      instance,
+      container,
+      isToast(),
+      onAfterClose
+    );
     popup.addEventListener(animationEndEvent, function (e) {
       if (e.target === popup) {
         globalState.swalCloseEventFinishedCallback();
@@ -2104,9 +2515,12 @@
     });
   };
 
-  var triggerOnAfterCloseAndDispose = function triggerOnAfterCloseAndDispose(instance, onAfterClose) {
+  var triggerOnAfterCloseAndDispose = function triggerOnAfterCloseAndDispose(
+    instance,
+    onAfterClose
+  ) {
     setTimeout(function () {
-      if (typeof onAfterClose === 'function') {
+      if (typeof onAfterClose === "function") {
         onAfterClose();
       }
 
@@ -2126,9 +2540,9 @@
       return false;
     }
 
-    if (input.type === 'radio') {
+    if (input.type === "radio") {
       var radiosContainer = input.parentNode.parentNode;
-      var radios = radiosContainer.querySelectorAll('input');
+      var radios = radiosContainer.querySelectorAll("input");
 
       for (var i = 0; i < radios.length; i++) {
         radios[i].disabled = disabled;
@@ -2139,10 +2553,10 @@
   }
 
   function enableButtons() {
-    setButtonsDisabled(this, ['confirmButton', 'cancelButton'], false);
+    setButtonsDisabled(this, ["confirmButton", "cancelButton"], false);
   }
   function disableButtons() {
-    setButtonsDisabled(this, ['confirmButton', 'cancelButton'], true);
+    setButtonsDisabled(this, ["confirmButton", "cancelButton"], true);
   }
   function enableInput() {
     return setInputDisabled(this.getInput(), false);
@@ -2155,14 +2569,18 @@
     var domCache = privateProps.domCache.get(this);
     setInnerHtml(domCache.validationMessage, error);
     var popupComputedStyle = window.getComputedStyle(domCache.popup);
-    domCache.validationMessage.style.marginLeft = "-".concat(popupComputedStyle.getPropertyValue('padding-left'));
-    domCache.validationMessage.style.marginRight = "-".concat(popupComputedStyle.getPropertyValue('padding-right'));
+    domCache.validationMessage.style.marginLeft = "-".concat(
+      popupComputedStyle.getPropertyValue("padding-left")
+    );
+    domCache.validationMessage.style.marginRight = "-".concat(
+      popupComputedStyle.getPropertyValue("padding-right")
+    );
     show(domCache.validationMessage);
     var input = this.getInput();
 
     if (input) {
-      input.setAttribute('aria-invalid', true);
-      input.setAttribute('aria-describedBy', swalClasses['validation-message']);
+      input.setAttribute("aria-invalid", true);
+      input.setAttribute("aria-describedBy", swalClasses["validation-message"]);
       focusInput(input);
       addClass(input, swalClasses.inputerror);
     }
@@ -2178,8 +2596,8 @@
     var input = this.getInput();
 
     if (input) {
-      input.removeAttribute('aria-invalid');
-      input.removeAttribute('aria-describedBy');
+      input.removeAttribute("aria-invalid");
+      input.removeAttribute("aria-describedBy");
       removeClass(input, swalClasses.inputerror);
     }
   }
@@ -2189,7 +2607,7 @@
     return domCache.progressSteps;
   }
 
-  var Timer = /*#__PURE__*/function () {
+  var Timer = /*#__PURE__*/ (function () {
     function Timer(callback, delay) {
       _classCallCheck(this, Timer);
 
@@ -2199,73 +2617,87 @@
       this.start();
     }
 
-    _createClass(Timer, [{
-      key: "start",
-      value: function start() {
-        if (!this.running) {
-          this.running = true;
-          this.started = new Date();
-          this.id = setTimeout(this.callback, this.remaining);
-        }
+    _createClass(Timer, [
+      {
+        key: "start",
+        value: function start() {
+          if (!this.running) {
+            this.running = true;
+            this.started = new Date();
+            this.id = setTimeout(this.callback, this.remaining);
+          }
 
-        return this.remaining;
-      }
-    }, {
-      key: "stop",
-      value: function stop() {
-        if (this.running) {
-          this.running = false;
-          clearTimeout(this.id);
-          this.remaining -= new Date() - this.started;
-        }
+          return this.remaining;
+        },
+      },
+      {
+        key: "stop",
+        value: function stop() {
+          if (this.running) {
+            this.running = false;
+            clearTimeout(this.id);
+            this.remaining -= new Date() - this.started;
+          }
 
-        return this.remaining;
-      }
-    }, {
-      key: "increase",
-      value: function increase(n) {
-        var running = this.running;
+          return this.remaining;
+        },
+      },
+      {
+        key: "increase",
+        value: function increase(n) {
+          var running = this.running;
 
-        if (running) {
-          this.stop();
-        }
+          if (running) {
+            this.stop();
+          }
 
-        this.remaining += n;
+          this.remaining += n;
 
-        if (running) {
-          this.start();
-        }
+          if (running) {
+            this.start();
+          }
 
-        return this.remaining;
-      }
-    }, {
-      key: "getTimerLeft",
-      value: function getTimerLeft() {
-        if (this.running) {
-          this.stop();
-          this.start();
-        }
+          return this.remaining;
+        },
+      },
+      {
+        key: "getTimerLeft",
+        value: function getTimerLeft() {
+          if (this.running) {
+            this.stop();
+            this.start();
+          }
 
-        return this.remaining;
-      }
-    }, {
-      key: "isRunning",
-      value: function isRunning() {
-        return this.running;
-      }
-    }]);
+          return this.remaining;
+        },
+      },
+      {
+        key: "isRunning",
+        value: function isRunning() {
+          return this.running;
+        },
+      },
+    ]);
 
     return Timer;
-  }();
+  })();
 
   var defaultInputValidators = {
     email: function email(string, validationMessage) {
-      return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
+      return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(
+        string
+      )
+        ? Promise.resolve()
+        : Promise.resolve(validationMessage || "Invalid email address");
     },
     url: function url(string, validationMessage) {
       // taken from https://stackoverflow.com/a/3809435 with a small change from #1306
-      return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid URL');
-    }
+      return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(
+        string
+      )
+        ? Promise.resolve()
+        : Promise.resolve(validationMessage || "Invalid URL");
+    },
   };
 
   function setDefaultInputValidators(params) {
@@ -2281,9 +2713,14 @@
 
   function validateCustomTargetElement(params) {
     // Determine if the custom target element is valid
-    if (!params.target || typeof params.target === 'string' && !document.querySelector(params.target) || typeof params.target !== 'string' && !params.target.appendChild) {
+    if (
+      !params.target ||
+      (typeof params.target === "string" &&
+        !document.querySelector(params.target)) ||
+      (typeof params.target !== "string" && !params.target.appendChild)
+    ) {
       warn('Target parameter is not valid, defaulting to "body"');
-      params.target = 'body';
+      params.target = "body";
     }
   }
   /**
@@ -2293,23 +2730,25 @@
    * @returns {boolean}
    */
 
-
   function setParameters(params) {
     setDefaultInputValidators(params); // showLoaderOnConfirm && preConfirm
 
     if (params.showLoaderOnConfirm && !params.preConfirm) {
-      warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
+      warn(
+        "showLoaderOnConfirm is set to true, but preConfirm is not defined.\n" +
+          "showLoaderOnConfirm should be used together with preConfirm, see usage example:\n" +
+          "https://sweetalert2.github.io/#ajax-request"
+      );
     } // params.animation will be actually used in renderPopup.js
     // but in case when params.animation is a function, we need to call that function
     // before popup (re)initialization, so it'll be possible to check Swal.isVisible()
     // inside the params.animation function
 
-
     params.animation = callIfFunction(params.animation);
     validateCustomTargetElement(params); // Replace newlines with <br> in title
 
-    if (typeof params.title === 'string') {
-      params.title = params.title.split('\n').join('<br />');
+    if (typeof params.title === "string") {
+      params.title = params.title.split("\n").join("<br />");
     }
 
     init(params);
@@ -2325,7 +2764,7 @@
     var container = getContainer();
     var popup = getPopup();
 
-    if (typeof params.onBeforeOpen === 'function') {
+    if (typeof params.onBeforeOpen === "function") {
       params.onBeforeOpen(popup);
     }
 
@@ -2336,7 +2775,11 @@
     setScrollingVisibility(container, popup);
 
     if (isModal()) {
-      fixScrollContainer(container, params.scrollbarPadding, initialBodyOverflow);
+      fixScrollContainer(
+        container,
+        params.scrollbarPadding,
+        initialBodyOverflow
+      );
       setAriaHidden();
     }
 
@@ -2344,13 +2787,13 @@
       globalState.previousActiveElement = document.activeElement;
     }
 
-    if (typeof params.onOpen === 'function') {
+    if (typeof params.onOpen === "function") {
       setTimeout(function () {
         return params.onOpen(popup);
       });
     }
 
-    removeClass(container, swalClasses['no-transition']);
+    removeClass(container, swalClasses["no-transition"]);
   };
 
   function swalOpenAnimationFinished(event) {
@@ -2362,26 +2805,32 @@
 
     var container = getContainer();
     popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
-    container.style.overflowY = 'auto';
+    container.style.overflowY = "auto";
   }
 
-  var setScrollingVisibility = function setScrollingVisibility(container, popup) {
+  var setScrollingVisibility = function setScrollingVisibility(
+    container,
+    popup
+  ) {
     if (animationEndEvent && hasCssAnimation(popup)) {
-      container.style.overflowY = 'hidden';
+      container.style.overflowY = "hidden";
       popup.addEventListener(animationEndEvent, swalOpenAnimationFinished);
     } else {
-      container.style.overflowY = 'auto';
+      container.style.overflowY = "auto";
     }
   };
 
-  var fixScrollContainer = function fixScrollContainer(container, scrollbarPadding, initialBodyOverflow) {
+  var fixScrollContainer = function fixScrollContainer(
+    container,
+    scrollbarPadding,
+    initialBodyOverflow
+  ) {
     iOSfix();
     IEfix();
 
-    if (scrollbarPadding && initialBodyOverflow !== 'hidden') {
+    if (scrollbarPadding && initialBodyOverflow !== "hidden") {
       fixScrollbar();
     } // sweetalert2/issues/1247
-
 
     setTimeout(function () {
       container.scrollTop = 0;
@@ -2396,14 +2845,24 @@
     addClass([document.documentElement, document.body], swalClasses.shown);
 
     if (params.heightAuto && params.backdrop && !params.toast) {
-      addClass([document.documentElement, document.body], swalClasses['height-auto']);
+      addClass(
+        [document.documentElement, document.body],
+        swalClasses["height-auto"]
+      );
     }
   };
 
-  var handleInputOptionsAndValue = function handleInputOptionsAndValue(instance, params) {
-    if (params.input === 'select' || params.input === 'radio') {
+  var handleInputOptionsAndValue = function handleInputOptionsAndValue(
+    instance,
+    params
+  ) {
+    if (params.input === "select" || params.input === "radio") {
       handleInputOptions(instance, params);
-    } else if (['text', 'email', 'number', 'tel', 'textarea'].indexOf(params.input) !== -1 && (hasToPromiseFn(params.inputValue) || isPromise(params.inputValue))) {
+    } else if (
+      ["text", "email", "number", "tel", "textarea"].indexOf(params.input) !==
+        -1 &&
+      (hasToPromiseFn(params.inputValue) || isPromise(params.inputValue))
+    ) {
       handleInputValue(instance, params);
     }
   };
@@ -2415,13 +2874,13 @@
     }
 
     switch (innerParams.input) {
-      case 'checkbox':
+      case "checkbox":
         return getCheckboxValue(input);
 
-      case 'radio':
+      case "radio":
         return getRadioValue(input);
 
-      case 'file':
+      case "file":
         return getFileValue(input);
 
       default:
@@ -2438,14 +2897,22 @@
   };
 
   var getFileValue = function getFileValue(input) {
-    return input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
+    return input.files.length
+      ? input.getAttribute("multiple") !== null
+        ? input.files
+        : input.files[0]
+      : null;
   };
 
   var handleInputOptions = function handleInputOptions(instance, params) {
     var content = getContent();
 
     var processInputOptions = function processInputOptions(inputOptions) {
-      return populateInputOptions[params.input](content, formatInputOptions(inputOptions), params);
+      return populateInputOptions[params.input](
+        content,
+        formatInputOptions(inputOptions),
+        params
+      );
     };
 
     if (hasToPromiseFn(params.inputOptions) || isPromise(params.inputOptions)) {
@@ -2454,36 +2921,49 @@
         instance.hideLoading();
         processInputOptions(inputOptions);
       });
-    } else if (_typeof(params.inputOptions) === 'object') {
+    } else if (_typeof(params.inputOptions) === "object") {
       processInputOptions(params.inputOptions);
     } else {
-      error("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(_typeof(params.inputOptions)));
+      error(
+        "Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(
+          _typeof(params.inputOptions)
+        )
+      );
     }
   };
 
   var handleInputValue = function handleInputValue(instance, params) {
     var input = instance.getInput();
     hide(input);
-    asPromise(params.inputValue).then(function (inputValue) {
-      input.value = params.input === 'number' ? parseFloat(inputValue) || 0 : "".concat(inputValue);
-      show(input);
-      input.focus();
-      instance.hideLoading();
-    })["catch"](function (err) {
-      error("Error in inputValue promise: ".concat(err));
-      input.value = '';
-      show(input);
-      input.focus();
-      instance.hideLoading();
-    });
+    asPromise(params.inputValue)
+      .then(function (inputValue) {
+        input.value =
+          params.input === "number"
+            ? parseFloat(inputValue) || 0
+            : "".concat(inputValue);
+        show(input);
+        input.focus();
+        instance.hideLoading();
+      })
+      ["catch"](function (err) {
+        error("Error in inputValue promise: ".concat(err));
+        input.value = "";
+        show(input);
+        input.focus();
+        instance.hideLoading();
+      });
   };
 
   var populateInputOptions = {
     select: function select(content, inputOptions, params) {
       var select = getChildByClass(content, swalClasses.select);
 
-      var renderOption = function renderOption(parent, optionLabel, optionValue) {
-        var option = document.createElement('option');
+      var renderOption = function renderOption(
+        parent,
+        optionLabel,
+        optionValue
+      ) {
+        var option = document.createElement("option");
         option.value = optionValue;
         setInnerHtml(option, optionLabel);
 
@@ -2503,7 +2983,7 @@
 
         if (Array.isArray(optionLabel)) {
           // if it is an array, then it is an <optgroup>
-          var optgroup = document.createElement('optgroup');
+          var optgroup = document.createElement("optgroup");
           optgroup.label = optionValue;
           optgroup.disabled = false; // not configurable for now
 
@@ -2523,9 +3003,9 @@
       inputOptions.forEach(function (inputOption) {
         var radioValue = inputOption[0];
         var radioLabel = inputOption[1];
-        var radioInput = document.createElement('input');
-        var radioLabelElement = document.createElement('label');
-        radioInput.type = 'radio';
+        var radioInput = document.createElement("input");
+        var radioLabelElement = document.createElement("label");
+        radioInput.type = "radio";
         radioInput.name = swalClasses.radio;
         radioInput.value = radioValue;
 
@@ -2533,19 +3013,19 @@
           radioInput.checked = true;
         }
 
-        var label = document.createElement('span');
+        var label = document.createElement("span");
         setInnerHtml(label, radioLabel);
         label.className = swalClasses.label;
         radioLabelElement.appendChild(radioInput);
         radioLabelElement.appendChild(label);
         radio.appendChild(radioLabelElement);
       });
-      var radios = radio.querySelectorAll('input');
+      var radios = radio.querySelectorAll("input");
 
       if (radios.length) {
         radios[0].focus();
       }
-    }
+    },
   };
   /**
    * Converts `inputOptions` into an array of `[value, label]`s
@@ -2555,11 +3035,11 @@
   var formatInputOptions = function formatInputOptions(inputOptions) {
     var result = [];
 
-    if (typeof Map !== 'undefined' && inputOptions instanceof Map) {
+    if (typeof Map !== "undefined" && inputOptions instanceof Map) {
       inputOptions.forEach(function (value, key) {
         var valueFormatted = value;
 
-        if (_typeof(valueFormatted) === 'object') {
+        if (_typeof(valueFormatted) === "object") {
           // case of <optgroup>
           valueFormatted = formatInputOptions(valueFormatted);
         }
@@ -2570,7 +3050,7 @@
       Object.keys(inputOptions).forEach(function (key) {
         var valueFormatted = inputOptions[key];
 
-        if (_typeof(valueFormatted) === 'object') {
+        if (_typeof(valueFormatted) === "object") {
           // case of <optgroup>
           valueFormatted = formatInputOptions(valueFormatted);
         }
@@ -2582,7 +3062,10 @@
     return result;
   };
 
-  var handleConfirmButtonClick = function handleConfirmButtonClick(instance, innerParams) {
+  var handleConfirmButtonClick = function handleConfirmButtonClick(
+    instance,
+    innerParams
+  ) {
     instance.disableButtons();
 
     if (innerParams.input) {
@@ -2591,18 +3074,26 @@
       confirm(instance, innerParams, true);
     }
   };
-  var handleCancelButtonClick = function handleCancelButtonClick(instance, dismissWith) {
+  var handleCancelButtonClick = function handleCancelButtonClick(
+    instance,
+    dismissWith
+  ) {
     instance.disableButtons();
     dismissWith(DismissReason.cancel);
   };
 
-  var handleConfirmWithInput = function handleConfirmWithInput(instance, innerParams) {
+  var handleConfirmWithInput = function handleConfirmWithInput(
+    instance,
+    innerParams
+  ) {
     var inputValue = getInputValue(instance, innerParams);
 
     if (innerParams.inputValidator) {
       instance.disableInput();
       var validationPromise = Promise.resolve().then(function () {
-        return asPromise(innerParams.inputValidator(inputValue, innerParams.validationMessage));
+        return asPromise(
+          innerParams.inputValidator(inputValue, innerParams.validationMessage)
+        );
       });
       validationPromise.then(function (validationMessage) {
         instance.enableButtons();
@@ -2624,7 +3115,7 @@
 
   var succeedWith = function succeedWith(instance, value) {
     instance.closePopup({
-      value: value
+      value: value,
     });
   };
 
@@ -2636,13 +3127,18 @@
     if (innerParams.preConfirm) {
       instance.resetValidationMessage();
       var preConfirmPromise = Promise.resolve().then(function () {
-        return asPromise(innerParams.preConfirm(value, innerParams.validationMessage));
+        return asPromise(
+          innerParams.preConfirm(value, innerParams.validationMessage)
+        );
       });
       preConfirmPromise.then(function (preConfirmValue) {
         if (isVisible(getValidationMessage()) || preConfirmValue === false) {
           instance.hideLoading();
         } else {
-          succeedWith(instance, typeof preConfirmValue === 'undefined' ? value : preConfirmValue);
+          succeedWith(
+            instance,
+            typeof preConfirmValue === "undefined" ? value : preConfirmValue
+          );
         }
       });
     } else {
@@ -2650,11 +3146,20 @@
     }
   };
 
-  var addKeydownHandler = function addKeydownHandler(instance, globalState, innerParams, dismissWith) {
+  var addKeydownHandler = function addKeydownHandler(
+    instance,
+    globalState,
+    innerParams,
+    dismissWith
+  ) {
     if (globalState.keydownTarget && globalState.keydownHandlerAdded) {
-      globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
-        capture: globalState.keydownListenerCapture
-      });
+      globalState.keydownTarget.removeEventListener(
+        "keydown",
+        globalState.keydownHandler,
+        {
+          capture: globalState.keydownListenerCapture,
+        }
+      );
       globalState.keydownHandlerAdded = false;
     }
 
@@ -2663,11 +3168,17 @@
         return keydownHandler(instance, e, dismissWith);
       };
 
-      globalState.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup();
+      globalState.keydownTarget = innerParams.keydownListenerCapture
+        ? window
+        : getPopup();
       globalState.keydownListenerCapture = innerParams.keydownListenerCapture;
-      globalState.keydownTarget.addEventListener('keydown', globalState.keydownHandler, {
-        capture: globalState.keydownListenerCapture
-      });
+      globalState.keydownTarget.addEventListener(
+        "keydown",
+        globalState.keydownHandler,
+        {
+          capture: globalState.keydownListenerCapture,
+        }
+      );
       globalState.keydownHandlerAdded = true;
     }
   }; // Focus handling
@@ -2687,12 +3198,21 @@
       return focusableElements[index].focus();
     } // no visible focusable elements, focus the popup
 
-
     getPopup().focus();
   };
-  var arrowKeys = ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Left', 'Right', 'Up', 'Down' // IE11
+  var arrowKeys = [
+    "ArrowLeft",
+    "ArrowRight",
+    "ArrowUp",
+    "ArrowDown",
+    "Left",
+    "Right",
+    "Up",
+    "Down", // IE11
   ];
-  var escKeys = ['Escape', 'Esc' // IE11
+  var escKeys = [
+    "Escape",
+    "Esc", // IE11
   ];
 
   var keydownHandler = function keydownHandler(instance, e, dismissWith) {
@@ -2702,10 +3222,9 @@
       e.stopPropagation();
     } // ENTER
 
-
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       handleEnter(instance, e, innerParams); // TAB
-    } else if (e.key === 'Tab') {
+    } else if (e.key === "Tab") {
       handleTab(e, innerParams); // ARROWS - switch focus between buttons
     } else if (arrowKeys.indexOf(e.key) !== -1) {
       handleArrows(); // ESC
@@ -2720,8 +3239,12 @@
       return;
     }
 
-    if (e.target && instance.getInput() && e.target.outerHTML === instance.getInput().outerHTML) {
-      if (['textarea', 'file'].indexOf(innerParams.input) !== -1) {
+    if (
+      e.target &&
+      instance.getInput() &&
+      e.target.outerHTML === instance.getInput().outerHTML
+    ) {
+      if (["textarea", "file"].indexOf(innerParams.input) !== -1) {
         return; // do not submit
       }
 
@@ -2760,7 +3283,10 @@
 
     if (document.activeElement === confirmButton && isVisible(cancelButton)) {
       cancelButton.focus(); // and vice versa
-    } else if (document.activeElement === cancelButton && isVisible(confirmButton)) {
+    } else if (
+      document.activeElement === cancelButton &&
+      isVisible(confirmButton)
+    ) {
       confirmButton.focus();
     }
   };
@@ -2772,7 +3298,11 @@
     }
   };
 
-  var handlePopupClick = function handlePopupClick(instance, domCache, dismissWith) {
+  var handlePopupClick = function handlePopupClick(
+    instance,
+    domCache,
+    dismissWith
+  ) {
     var innerParams = privateProps.innerParams.get(instance);
 
     if (innerParams.toast) {
@@ -2787,12 +3317,21 @@
     }
   };
 
-  var handleToastClick = function handleToastClick(instance, domCache, dismissWith) {
+  var handleToastClick = function handleToastClick(
+    instance,
+    domCache,
+    dismissWith
+  ) {
     // Closing toast by internal click
     domCache.popup.onclick = function () {
       var innerParams = privateProps.innerParams.get(instance);
 
-      if (innerParams.showConfirmButton || innerParams.showCancelButton || innerParams.showCloseButton || innerParams.input) {
+      if (
+        innerParams.showConfirmButton ||
+        innerParams.showCancelButton ||
+        innerParams.showCloseButton ||
+        innerParams.input
+      ) {
         return;
       }
 
@@ -2827,7 +3366,11 @@
     };
   };
 
-  var handleModalClick = function handleModalClick(instance, domCache, dismissWith) {
+  var handleModalClick = function handleModalClick(
+    instance,
+    domCache,
+    dismissWith
+  ) {
     domCache.container.onclick = function (e) {
       var innerParams = privateProps.innerParams.get(instance);
 
@@ -2836,7 +3379,10 @@
         return;
       }
 
-      if (e.target === domCache.container && callIfFunction(innerParams.allowOutsideClick)) {
+      if (
+        e.target === domCache.container &&
+        callIfFunction(innerParams.allowOutsideClick)
+      ) {
         dismissWith(DismissReason.backdrop);
       }
     };
@@ -2859,7 +3405,6 @@
       delete globalState.timeout;
     } // clear the restore focus timeout
 
-
     clearTimeout(globalState.restoreFocusTimeout);
     var domCache = populateDomCache(this);
     render(this, innerParams);
@@ -2879,8 +3424,8 @@
 
     if (userParams.animation === false) {
       params.showClass = {
-        popup: 'swal2-noanimation',
-        backdrop: 'swal2-noanimation'
+        popup: "swal2-noanimation",
+        backdrop: "swal2-noanimation",
       };
       params.hideClass = {};
     }
@@ -2893,7 +3438,7 @@
       // functions to handle all closings/dismissals
       var dismissWith = function dismissWith(dismiss) {
         instance.closePopup({
-          dismiss: dismiss
+          dismiss: dismiss,
         });
       };
 
@@ -2914,10 +3459,13 @@
       handlePopupClick(instance, domCache, dismissWith);
       addKeydownHandler(instance, globalState, innerParams, dismissWith);
 
-      if (innerParams.toast && (innerParams.input || innerParams.footer || innerParams.showCloseButton)) {
-        addClass(document.body, swalClasses['toast-column']);
+      if (
+        innerParams.toast &&
+        (innerParams.input || innerParams.footer || innerParams.showCloseButton)
+      ) {
+        addClass(document.body, swalClasses["toast-column"]);
       } else {
-        removeClass(document.body, swalClasses['toast-column']);
+        removeClass(document.body, swalClasses["toast-column"]);
       }
 
       handleInputOptionsAndValue(instance, innerParams);
@@ -2941,19 +3489,23 @@
       cancelButton: getCancelButton(),
       closeButton: getCloseButton(),
       validationMessage: getValidationMessage(),
-      progressSteps: getProgressSteps()
+      progressSteps: getProgressSteps(),
     };
     privateProps.domCache.set(instance, domCache);
     return domCache;
   };
 
-  var setupTimer = function setupTimer(globalState$$1, innerParams, dismissWith) {
+  var setupTimer = function setupTimer(
+    globalState$$1,
+    innerParams,
+    dismissWith
+  ) {
     var timerProgressBar = getTimerProgressBar();
     hide(timerProgressBar);
 
     if (innerParams.timer) {
       globalState$$1.timeout = new Timer(function () {
-        dismissWith('timer');
+        dismissWith("timer");
         delete globalState$$1.timeout;
       }, innerParams.timer);
 
@@ -2990,7 +3542,10 @@
   };
 
   var blurActiveElement = function blurActiveElement() {
-    if (document.activeElement && typeof document.activeElement.blur === 'function') {
+    if (
+      document.activeElement &&
+      typeof document.activeElement.blur === "function"
+    ) {
       document.activeElement.blur();
     }
   };
@@ -3004,7 +3559,9 @@
     var innerParams = privateProps.innerParams.get(this);
 
     if (!popup || hasClass(popup, innerParams.hideClass.popup)) {
-      return warn("You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.");
+      return warn(
+        "You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup."
+      );
     }
 
     var validUpdatableParams = {}; // assign valid params from `params` to `defaults`
@@ -3013,7 +3570,12 @@
       if (Swal.isUpdatableParameter(param)) {
         validUpdatableParams[param] = params[param];
       } else {
-        warn("Invalid parameter to update: \"".concat(param, "\". Updatable params are listed here: https://github.com/sweetalert2/sweetalert2/blob/master/src/utils/params.js"));
+        warn(
+          'Invalid parameter to update: "'.concat(
+            param,
+            '". Updatable params are listed here: https://github.com/sweetalert2/sweetalert2/blob/master/src/utils/params.js'
+          )
+        );
       }
     });
 
@@ -3025,8 +3587,8 @@
       params: {
         value: _extends({}, this.params, params),
         writable: false,
-        enumerable: true
-      }
+        enumerable: true,
+      },
     });
   }
 
@@ -3038,19 +3600,17 @@
       return; // This instance has already been destroyed
     } // Check if there is another Swal closing
 
-
     if (domCache.popup && globalState.swalCloseEventFinishedCallback) {
       globalState.swalCloseEventFinishedCallback();
       delete globalState.swalCloseEventFinishedCallback;
     } // Check if there is a swal disposal defer timer
-
 
     if (globalState.deferDisposalTimer) {
       clearTimeout(globalState.deferDisposalTimer);
       delete globalState.deferDisposalTimer;
     }
 
-    if (typeof innerParams.onDestroy === 'function') {
+    if (typeof innerParams.onDestroy === "function") {
       innerParams.onDestroy();
     }
 
@@ -3074,9 +3634,7 @@
     }
   };
 
-
-
-  var instanceMethods = /*#__PURE__*/Object.freeze({
+  var instanceMethods = /*#__PURE__*/ Object.freeze({
     hideLoading: hideLoading,
     disableLoading: hideLoading,
     getInput: getInput$1,
@@ -3093,28 +3651,33 @@
     getProgressSteps: getProgressSteps$1,
     _main: _main,
     update: update,
-    _destroy: _destroy
+    _destroy: _destroy,
   });
 
   var currentInstance;
 
-  var SweetAlert = /*#__PURE__*/function () {
+  var SweetAlert = /*#__PURE__*/ (function () {
     function SweetAlert() {
       _classCallCheck(this, SweetAlert);
 
       // Prevent run in Node env
-      if (typeof window === 'undefined') {
+      if (typeof window === "undefined") {
         return;
       } // Check for the existence of Promise
 
-
-      if (typeof Promise === 'undefined') {
-        error('This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)');
+      if (typeof Promise === "undefined") {
+        error(
+          "This package requires a Promise library, please include a shim to enable it in this browser (See: https://github.com/sweetalert2/sweetalert2/wiki/Migration-from-SweetAlert-to-SweetAlert2#1-ie-support)"
+        );
       }
 
       currentInstance = this;
 
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      for (
+        var _len = arguments.length, args = new Array(_len), _key = 0;
+        _key < _len;
+        _key++
+      ) {
         args[_key] = arguments[_key];
       }
 
@@ -3124,8 +3687,8 @@
           value: outerParams,
           writable: false,
           enumerable: true,
-          configurable: true
-        }
+          configurable: true,
+        },
       });
 
       var promise = this._main(this.params);
@@ -3133,49 +3696,66 @@
       privateProps.promise.set(this, promise);
     } // `catch` cannot be the name of a module export, so we define our thenable methods here instead
 
-
-    _createClass(SweetAlert, [{
-      key: "then",
-      value: function then(onFulfilled) {
-        var promise = privateProps.promise.get(this);
-        return promise.then(onFulfilled);
-      }
-    }, {
-      key: "finally",
-      value: function _finally(onFinally) {
-        var promise = privateProps.promise.get(this);
-        return promise["finally"](onFinally);
-      }
-    }]);
+    _createClass(SweetAlert, [
+      {
+        key: "then",
+        value: function then(onFulfilled) {
+          var promise = privateProps.promise.get(this);
+          return promise.then(onFulfilled);
+        },
+      },
+      {
+        key: "finally",
+        value: function _finally(onFinally) {
+          var promise = privateProps.promise.get(this);
+          return promise["finally"](onFinally);
+        },
+      },
+    ]);
 
     return SweetAlert;
-  }(); // Assign instance methods from src/instanceMethods/*.js to prototype
-
+  })(); // Assign instance methods from src/instanceMethods/*.js to prototype
 
   _extends(SweetAlert.prototype, instanceMethods); // Assign static methods from src/staticMethods/*.js to constructor
 
-
   _extends(SweetAlert, staticMethods); // Proxy to instance methods to constructor, for now, for backwards compatibility
-
 
   Object.keys(instanceMethods).forEach(function (key) {
     SweetAlert[key] = function () {
       if (currentInstance) {
         var _currentInstance;
 
-        return (_currentInstance = currentInstance)[key].apply(_currentInstance, arguments);
+        return (_currentInstance = currentInstance)[key].apply(
+          _currentInstance,
+          arguments
+        );
       }
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '9.15.2';
+  SweetAlert.version = "9.15.2";
 
   var Swal = SweetAlert;
   Swal["default"] = Swal;
 
   return Swal;
+});
+if (typeof this !== "undefined" && this.Sweetalert2) {
+  this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2;
+}
 
-}));
-if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}
-
-"undefined"!=typeof document&&function(e,t){var n=e.createElement("style");if(e.getElementsByTagName("head")[0].appendChild(n),n.styleSheet)n.styleSheet.disabled||(n.styleSheet.cssText=t);else try{n.innerHTML=t}catch(e){n.innerText=t}}(document,".swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-no-transition{transition:none!important}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-actions.swal2-loading .swal2-styled.swal2-confirm{box-sizing:border-box;width:2.5em;height:2.5em;margin:.46875em;padding:0;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent!important;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{content:\"\";display:inline-block;width:15px;height:15px;margin-left:5px;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff}.swal2-styled{margin:.3125em;padding:.625em 2em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;height:.25em;overflow:hidden;border-bottom-right-radius:.3125em;border-bottom-left-radius:.3125em}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;align-items:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:0;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::-ms-input-placeholder,.swal2-input::-ms-input-placeholder,.swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;width:2.5em;height:.4em;margin:0 -1px;background:#3085d6}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}");
+"undefined" != typeof document &&
+  (function (e, t) {
+    var n = e.createElement("style");
+    if ((e.getElementsByTagName("head")[0].appendChild(n), n.styleSheet))
+      n.styleSheet.disabled || (n.styleSheet.cssText = t);
+    else
+      try {
+        n.innerHTML = t;
+      } catch (e) {
+        n.innerText = t;
+      }
+  })(
+    document,
+    '.swal2-popup.swal2-toast{flex-direction:row;align-items:center;width:auto;padding:.625em;overflow-y:hidden;background:#fff;box-shadow:0 0 .625em #d9d9d9}.swal2-popup.swal2-toast .swal2-header{flex-direction:row}.swal2-popup.swal2-toast .swal2-title{flex-grow:1;justify-content:flex-start;margin:0 .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{position:static;width:.8em;height:.8em;line-height:.8}.swal2-popup.swal2-toast .swal2-content{justify-content:flex-start;font-size:1em}.swal2-popup.swal2-toast .swal2-icon{width:2em;min-width:2em;height:2em;margin:0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:700}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{font-size:.25em}}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{flex-basis:auto!important;width:auto;height:auto;margin:0 .3125em}.swal2-popup.swal2-toast .swal2-styled{margin:0 .3125em;padding:.3125em .625em;font-size:1em}.swal2-popup.swal2-toast .swal2-styled:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.8em;left:-.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-toast-animate-success-line-tip .75s;animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-toast-animate-success-line-long .75s;animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{-webkit-animation:swal2-toast-show .5s;animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{-webkit-animation:swal2-toast-hide .1s forwards;animation:swal2-toast-hide .1s forwards}.swal2-container{display:flex;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;flex-direction:row;align-items:center;justify-content:center;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:0 0!important}.swal2-container.swal2-top{align-items:flex-start}.swal2-container.swal2-top-left,.swal2-container.swal2-top-start{align-items:flex-start;justify-content:flex-start}.swal2-container.swal2-top-end,.swal2-container.swal2-top-right{align-items:flex-start;justify-content:flex-end}.swal2-container.swal2-center{align-items:center}.swal2-container.swal2-center-left,.swal2-container.swal2-center-start{align-items:center;justify-content:flex-start}.swal2-container.swal2-center-end,.swal2-container.swal2-center-right{align-items:center;justify-content:flex-end}.swal2-container.swal2-bottom{align-items:flex-end}.swal2-container.swal2-bottom-left,.swal2-container.swal2-bottom-start{align-items:flex-end;justify-content:flex-start}.swal2-container.swal2-bottom-end,.swal2-container.swal2-bottom-right{align-items:flex-end;justify-content:flex-end}.swal2-container.swal2-bottom-end>:first-child,.swal2-container.swal2-bottom-left>:first-child,.swal2-container.swal2-bottom-right>:first-child,.swal2-container.swal2-bottom-start>:first-child,.swal2-container.swal2-bottom>:first-child{margin-top:auto}.swal2-container.swal2-grow-fullscreen>.swal2-modal{display:flex!important;flex:1;align-self:stretch;justify-content:center}.swal2-container.swal2-grow-row>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-grow-column{flex:1;flex-direction:column}.swal2-container.swal2-grow-column.swal2-bottom,.swal2-container.swal2-grow-column.swal2-center,.swal2-container.swal2-grow-column.swal2-top{align-items:center}.swal2-container.swal2-grow-column.swal2-bottom-left,.swal2-container.swal2-grow-column.swal2-bottom-start,.swal2-container.swal2-grow-column.swal2-center-left,.swal2-container.swal2-grow-column.swal2-center-start,.swal2-container.swal2-grow-column.swal2-top-left,.swal2-container.swal2-grow-column.swal2-top-start{align-items:flex-start}.swal2-container.swal2-grow-column.swal2-bottom-end,.swal2-container.swal2-grow-column.swal2-bottom-right,.swal2-container.swal2-grow-column.swal2-center-end,.swal2-container.swal2-grow-column.swal2-center-right,.swal2-container.swal2-grow-column.swal2-top-end,.swal2-container.swal2-grow-column.swal2-top-right{align-items:flex-end}.swal2-container.swal2-grow-column>.swal2-modal{display:flex!important;flex:1;align-content:center;justify-content:center}.swal2-container.swal2-no-transition{transition:none!important}.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal{margin:auto}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-container .swal2-modal{margin:0!important}}.swal2-popup{display:none;position:relative;box-sizing:border-box;flex-direction:column;justify-content:center;width:32em;max-width:100%;padding:1.25em;border:none;border-radius:.3125em;background:#fff;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:0}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-header{display:flex;flex-direction:column;align-items:center}.swal2-title{position:relative;max-width:100%;margin:0 0 .4em;padding:0;color:#595959;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;flex-wrap:wrap;align-items:center;justify-content:center;width:100%;margin:1.25em auto 0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.2))}.swal2-actions.swal2-loading .swal2-styled.swal2-confirm{box-sizing:border-box;width:2.5em;height:2.5em;margin:.46875em;padding:0;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:.25em solid transparent;border-radius:100%;border-color:transparent;background-color:transparent!important;color:transparent!important;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-actions.swal2-loading .swal2-styled.swal2-cancel{margin-right:30px;margin-left:30px}.swal2-actions.swal2-loading :not(.swal2-styled).swal2-confirm::after{content:"";display:inline-block;width:15px;height:15px;margin-left:5px;-webkit-animation:swal2-rotate-loading 1.5s linear 0s infinite normal;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border:3px solid #999;border-radius:50%;border-right-color:transparent;box-shadow:1px 1px 1px #fff}.swal2-styled{margin:.3125em;padding:.625em 2em;box-shadow:none;font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#3085d6;color:#fff;font-size:1.0625em}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#aaa;color:#fff;font-size:1.0625em}.swal2-styled:focus{outline:0;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(50,100,150,.4)}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1.25em 0 0;padding:1em 0 0;border-top:1px solid #eee;color:#545454;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;height:.25em;overflow:hidden;border-bottom-right-radius:.3125em;border-bottom-left-radius:.3125em}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:1.25em auto}.swal2-close{position:absolute;z-index:2;top:0;right:0;align-items:center;justify-content:center;width:1.2em;height:1.2em;padding:0;overflow:hidden;transition:color .1s ease-out;border:none;border-radius:0;background:0 0;color:#ccc;font-family:serif;font-size:2.5em;line-height:1.2;cursor:pointer}.swal2-close:hover{transform:none;background:0 0;color:#f27474}.swal2-close::-moz-focus-inner{border:0}.swal2-content{z-index:1;justify-content:center;margin:0;padding:0;color:#545454;font-size:1.125em;font-weight:400;line-height:normal;text-align:center;word-wrap:break-word}.swal2-checkbox,.swal2-file,.swal2-input,.swal2-radio,.swal2-select,.swal2-textarea{margin:1em auto}.swal2-file,.swal2-input,.swal2-textarea{box-sizing:border-box;width:100%;transition:border-color .3s,box-shadow .3s;border:1px solid #d9d9d9;border-radius:.1875em;background:inherit;box-shadow:inset 0 1px 1px rgba(0,0,0,.06);color:inherit;font-size:1.125em}.swal2-file.swal2-inputerror,.swal2-input.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474!important;box-shadow:0 0 2px #f27474!important}.swal2-file:focus,.swal2-input:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:0;box-shadow:0 0 3px #c4e6f5}.swal2-file::-moz-placeholder,.swal2-input::-moz-placeholder,.swal2-textarea::-moz-placeholder{color:#ccc}.swal2-file:-ms-input-placeholder,.swal2-input:-ms-input-placeholder,.swal2-textarea:-ms-input-placeholder{color:#ccc}.swal2-file::-ms-input-placeholder,.swal2-input::-ms-input-placeholder,.swal2-textarea::-ms-input-placeholder{color:#ccc}.swal2-file::placeholder,.swal2-input::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em auto;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-input[type=number]{max-width:10em}.swal2-file{background:inherit;font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:inherit;color:inherit;font-size:1.125em}.swal2-checkbox,.swal2-radio{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-checkbox label,.swal2-radio label{margin:0 .6em;font-size:1.125em}.swal2-checkbox input,.swal2-radio input{margin:0 .4em}.swal2-validation-message{display:none;align-items:center;justify-content:center;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:"!";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:1.25em auto 1.875em;border:.25em solid transparent;border-radius:50%;font-family:inherit;line-height:5em;cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{-webkit-animation:swal2-animate-error-icon .5s;animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{-webkit-animation:swal2-animate-error-x-mark .5s;animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-.25em;left:-.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{-webkit-animation:swal2-animate-success-line-tip .75s;animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{-webkit-animation:swal2-animate-success-line-long .75s;animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{-webkit-animation:swal2-rotate-success-circular-line 4.25s ease-in;animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{align-items:center;margin:0 0 1.25em;padding:0;background:inherit;font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;width:2em;height:2em;border-radius:2em;background:#3085d6;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#3085d6}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;width:2.5em;height:.4em;margin:0 -1px;background:#3085d6}[class^=swal2]{-webkit-tap-highlight-color:transparent}.swal2-show{-webkit-animation:swal2-show .3s;animation:swal2-show .3s}.swal2-hide{-webkit-animation:swal2-hide .15s forwards;animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{right:auto;left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@supports (-ms-accelerator:true){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@media all and (-ms-high-contrast:none),(-ms-high-contrast:active){.swal2-range input{width:100%!important}.swal2-range output{display:none}}@-moz-document url-prefix(){.swal2-close:focus{outline:2px solid rgba(50,100,150,.4)}}@-webkit-keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@keyframes swal2-toast-show{0%{transform:translateY(-.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0)}}@-webkit-keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@-webkit-keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@-webkit-keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@-webkit-keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@keyframes swal2-show{0%{transform:scale(.7)}45%{transform:scale(1.05)}80%{transform:scale(.95)}100%{transform:scale(1)}}@-webkit-keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(.5);opacity:0}}@-webkit-keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@-webkit-keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@-webkit-keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@-webkit-keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(.4);opacity:0}50%{margin-top:1.625em;transform:scale(.4);opacity:0}80%{margin-top:-.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@-webkit-keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0);opacity:1}}@-webkit-keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}@keyframes swal2-rotate-loading{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto!important}body.swal2-no-backdrop .swal2-container{top:auto;right:auto;bottom:auto;left:auto;max-width:calc(100% - .625em * 2);background-color:transparent!important}body.swal2-no-backdrop .swal2-container>.swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}body.swal2-no-backdrop .swal2-container.swal2-top{top:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-top-left,body.swal2-no-backdrop .swal2-container.swal2-top-start{top:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-top-end,body.swal2-no-backdrop .swal2-container.swal2-top-right{top:0;right:0}body.swal2-no-backdrop .swal2-container.swal2-center{top:50%;left:50%;transform:translate(-50%,-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-left,body.swal2-no-backdrop .swal2-container.swal2-center-start{top:50%;left:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-center-end,body.swal2-no-backdrop .swal2-container.swal2-center-right{top:50%;right:0;transform:translateY(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom{bottom:0;left:50%;transform:translateX(-50%)}body.swal2-no-backdrop .swal2-container.swal2-bottom-left,body.swal2-no-backdrop .swal2-container.swal2-bottom-start{bottom:0;left:0}body.swal2-no-backdrop .swal2-container.swal2-bottom-end,body.swal2-no-backdrop .swal2-container.swal2-bottom-right{right:0;bottom:0}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll!important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static!important}}body.swal2-toast-shown .swal2-container{background-color:transparent}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-left,body.swal2-toast-shown .swal2-container.swal2-top-start{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-left,body.swal2-toast-shown .swal2-container.swal2-center-start{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%,-50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-left,body.swal2-toast-shown .swal2-container.swal2-bottom-start{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}body.swal2-toast-column .swal2-toast{flex-direction:column;align-items:stretch}body.swal2-toast-column .swal2-toast .swal2-actions{flex:1;align-self:stretch;height:2.2em;margin-top:.3125em}body.swal2-toast-column .swal2-toast .swal2-loading{justify-content:center}body.swal2-toast-column .swal2-toast .swal2-input{height:2em;margin:.3125em auto;font-size:1em}body.swal2-toast-column .swal2-toast .swal2-validation-message{font-size:1em}'
+  );

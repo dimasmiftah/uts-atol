@@ -10,18 +10,18 @@ if ($_SESSION['role'] != "Admin") {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="../asset/css/base.css">
-  <link rel="stylesheet" href="../asset/css/mobile.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/mobile.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" />
-  <link rel="stylesheet" type="text/css" href="../asset/SweetAlert/sweetalert2.min.css">
-  <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../assets/SweetAlert/sweetalert2.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <title>SBD-Akademik</title>
+  <title>SI Akademik</title>
 </head>
 
 <body style="background:#f9f9f9;">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">SBD-Akademik</a>
+    <a class="navbar-brand" href="#">SI Akademik</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,7 +49,7 @@ if ($_SESSION['role'] != "Admin") {
           <a class="nav-link sidebar" href="matakuliah.php" role="tab" aria-selected="false"><i class="fas fa-user-graduate"></i> Dosen</a>
           <a class="nav-link sidebar" href="matakuliah.php" role="tab" aria-selected="false"><i class="fas fa-book-open"></i> Mata Kuliah</a>
 
-          <a class="nav-link sidebar active" href="pengguna.php" role="tab" aria-selected="false" id="link_user"><i class="fas fa-user"></i> Pengguna</a>
+          <a class="nav-link sidebar active" href="petugas.php" role="tab" aria-selected="false" id="link_user"><i class="fas fa-user"></i> Petugas</a>
         </div>
       </div>
       <div class="col-9">
@@ -60,12 +60,12 @@ if ($_SESSION['role'] != "Admin") {
                 <div class="container">
                   <div class="row">
                     <div class="col-4">
-                      <h3 class="title-table"> Daftar Pengguna </h3>
+                      <h3 class="title-table"> Daftar Petugas </h3>
                     </div>
                     <div class="col-5">
                     </div>
                     <div class="col-2">
-                      <button class="btn btn-primary btn-tambah" data-toggle="modal" data-target="#Tambah" aria-hidden="true" type="button"> Tambah Pengguna</button>
+                      <button class="btn btn-primary btn-tambah" data-toggle="modal" data-target="#Tambah" aria-hidden="true" type="button"> Tambah Petugas</button>
                     </div>
                     <div class="col-1 list-button">
                       <button class="btn btn-primary btn-sm" style=" float: right;" onclick="ToPDF()"><i class="fa fa-file-pdf"></i> PDF</button>
@@ -73,34 +73,34 @@ if ($_SESSION['role'] != "Admin") {
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pengguna</h5>
+                              <h5 class="modal-title" id="exampleModalLabel">Tambah Data Petugas</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
                             <div class="modal-body">
                               <div class="form-group">
-                                <label for="nama">Nama </label>
-                                <input type="name" class="form-control" id="nama" aria-describedby="emailHelp">
+                                <label for="nama">Nama Petugas</label>
+                                <input placeholder="Nama lengkap" type="name" class="form-control" id="nama" aria-describedby="emailHelp">
                               </div>
                               <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control" id="username">
+                                <input placeholder="Username akun" type="text" class="form-control" id="username">
                               </div>
                               <div class="form-group">
                                 <label for="password">Password </label>
-                                <input type="password" class="form-control" id="password" aria-describedby="emailHelp">
+                                <input placeholder="Password akun" type="password" class="form-control" id="password" aria-describedby="emailHelp">
                               </div>
                               <div class="form-group">
                                 <label for="exampleInputPassword1">Konfirmasi Password</label>
-                                <input type="password" class="form-control" id="kpassword">
-                                <small class="msg_error" style="color: red">Sorry Password Didn't Match Please check Again</small>
-                                <small class="msg_done" style="color: green">Password Match!! Thanks :)</small>
+                                <input placeholder="Konfirmasi password akun" type="password" class="form-control" id="kpassword">
+                                <small class="msg_error" style="color: red">Password tidak sama dengan yang pertama, periksa kembali!</small>
+                                <small class="msg_done" style="color: green">Password sesuai :)</small>
                               </div>
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary btn_simpan">Save changes</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                              <button type="button" class="btn btn-primary btn_simpan">Simpan</button>
                             </div>
                           </div>
                         </div>
@@ -146,24 +146,24 @@ if ($_SESSION['role'] != "Admin") {
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Edit Data Pengguna</h5>
+                          <h5 class="modal-title" id="exampleModalLabel">Edit Data Petugas</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
                         </div>
                         <div class="modal-body">
                           <div class="form-group">
-                            <label for="edit_nama">Nama</label>
-                            <input type="name" class="form-control" id="edit_nama" aria-describedby="emailHelp">
+                            <label for="edit_nama">Nama Petugas</label>
+                            <input placeholder="Nama lengkap" type="name" class="form-control" id="edit_nama" aria-describedby="emailHelp">
                           </div>
                           <div class="form-group">
                             <label for="edit_username">Username</label>
-                            <input type="text" class="form-control" id="edit_username">
+                            <input placeholder="Username akun" type="text" class="form-control" id="edit_username">
                           </div>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary btn_update">Save changes</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                          <button type="button" class="btn btn-primary btn_update">Simpan</button>
                         </div>
                       </div>
                     </div>
@@ -180,12 +180,12 @@ if ($_SESSION['role'] != "Admin") {
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-  <script type="text/javascript" src="../asset/SweetAlert/sweetalert2.min.js"></script>
+  <script type="text/javascript" src="../assets/SweetAlert/sweetalert2.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="../asset/js/bootstrap.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-  <script type="text/javascript" src="../Asset/js/jspdf.plugin.autotable.min.js"></script>
+  <script type="text/javascript" src="../assets/js/jspdf.plugin.autotable.min.js"></script>
 
   <script>
     $(document).ready(function() {
@@ -219,7 +219,7 @@ if ($_SESSION['role'] != "Admin") {
           width: 522
         };
       doc.setFontSize(26);
-      doc.text(40, 35, 'Laporan Data Pengguna');
+      doc.text(40, 35, 'Laporan Data Petugas');
 
 
       doc.autoTable({
@@ -231,7 +231,7 @@ if ($_SESSION['role'] != "Admin") {
           left: 40
         }
       });
-      doc.save('SBD-Akademik-Pengguna.pdf');
+      doc.save('SI Akademik-Petugas.pdf');
     }
 
     $('.btn_simpan').on('click', function() {
@@ -242,13 +242,13 @@ if ($_SESSION['role'] != "Admin") {
       console.log(nama + username + password);
       if (nama == '' || username == '' || password == '') {
         Swal.fire(
-          'Warning!',
-          'Pastikan Semua Data sudah terisi',
+          'Peringatan!',
+          'Pastikan semua data sudah terisi dengan benar.',
           'warning'
         );
       } else {
         $.ajax({
-          url: "../controller/pengguna-controller.php",
+          url: "../controllers/petugas-controller.php",
           type: 'post',
           data: {
             id: '0',
@@ -258,7 +258,7 @@ if ($_SESSION['role'] != "Admin") {
             console.log(data);
             id_user = data;
             $.ajax({
-              url: "../controller/pengguna-controller.php",
+              url: "../controllers/petugas-controller.php",
               type: 'post',
               data: {
                 id: id_user,
@@ -270,7 +270,7 @@ if ($_SESSION['role'] != "Admin") {
               success: function(data) {
                 Swal.fire({
                   icon: 'success',
-                  title: 'Your work has been saved',
+                  title: 'Data berhasil disimpan',
                   showConfirmButton: false,
                   timer: 1500
                 })
@@ -281,7 +281,7 @@ if ($_SESSION['role'] != "Admin") {
               error: function(data) {
                 swalWithBootstrapButtons.fire(
                   'Gagal!',
-                  'Failed to add data',
+                  'Gagal menyimpan data',
                   'error'
                 );
               }
@@ -312,7 +312,7 @@ if ($_SESSION['role'] != "Admin") {
 
     $('.btn_update').on('click', function() {
       $.ajax({
-        url: "../controller/pengguna-controller.php",
+        url: "../controllers/petugas-controller.php",
         type: 'post',
         data: {
           id: id,
@@ -323,7 +323,7 @@ if ($_SESSION['role'] != "Admin") {
         success: function(data) {
           Swal.fire({
             icon: 'success',
-            title: 'Update Success !',
+            title: 'Data berhasil diperbarui',
             showConfirmButton: false,
             timer: 1500
           })
@@ -334,7 +334,7 @@ if ($_SESSION['role'] != "Admin") {
         error: function(data) {
           swalWithBootstrapButtons.fire(
             'Gagal!',
-            'Failed to delete your file.',
+            'Gagal memperbarui data.',
             'error'
           );
         }
@@ -343,7 +343,7 @@ if ($_SESSION['role'] != "Admin") {
 
     function edit_User(id) {
       $.ajax({
-        url: "../controller/pengguna-controller.php",
+        url: "../controllers/petugas-controller.php",
         type: 'post',
         data: {
           id: id,
@@ -359,7 +359,7 @@ if ($_SESSION['role'] != "Admin") {
         error: function(data) {
           swalWithBootstrapButtons.fire(
             'Gagal!',
-            'Failed to delete your file.',
+            'Gagal memperbarui data.',
             'error'
           );
         }
@@ -375,17 +375,17 @@ if ($_SESSION['role'] != "Admin") {
         buttonsStyling: false
       })
       swalWithBootstrapButtons.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Apakah kamu yakin?',
+        text: "Data yang dihapus tidak dapat dikembalikan!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'No, cancel!',
+        confirmButtonText: 'Ya, hapus data!',
+        cancelButtonText: 'Tidak, batalkan!',
         reverseButtons: true
       }).then((result) => {
         if (result.value) {
           $.ajax({
-            url: "../controller/pengguna-controller.php",
+            url: "../controllers/petugas-controller.php",
             type: 'post',
             data: {
               id: id,
@@ -393,8 +393,8 @@ if ($_SESSION['role'] != "Admin") {
             },
             success: function(data) {
               swalWithBootstrapButtons.fire(
-                'Deleted!',
-                'Your file has been deleted.',
+                'Dihapus!',
+                'Data berhasil dihapus.',
                 'success'
               );
               $('.itemUser' + id).fadeOut(1500, function() {
@@ -404,7 +404,7 @@ if ($_SESSION['role'] != "Admin") {
             error: function(data) {
               swalWithBootstrapButtons.fire(
                 'Gagal!',
-                'Failed to delete your file.',
+                'Gagal menghapus data.',
                 'error'
               );
             }
@@ -413,8 +413,8 @@ if ($_SESSION['role'] != "Admin") {
           result.dismiss === Swal.DismissReason.cancel
         ) {
           swalWithBootstrapButtons.fire(
-            'Cancelled',
-            'Your imaginary file is safe :)',
+            'Dibatalkan',
+            'Penghapusan data dibatalkan.',
             'error'
           )
         }

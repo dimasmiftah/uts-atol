@@ -10,18 +10,18 @@ if ($_SESSION['role'] != "Admin") {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="../asset/css/base.css">
-  <link rel="stylesheet" href="../asset/css/mobile.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/mobile.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css" />
-  <link rel="stylesheet" type="text/css" href="../asset/SweetAlert/sweetalert2.min.css">
-  <link rel="stylesheet" href="../asset/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../assets/SweetAlert/sweetalert2.min.css">
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <title>SBD-Akademik</title>
+  <title>SI Akademik</title>
 </head>
 
 <body style="background:#f9f9f9;">
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">SBD-Akademik</a>
+    <a class="navbar-brand" href="#">SI Akademik</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,7 +49,7 @@ if ($_SESSION['role'] != "Admin") {
           <a class="nav-link sidebar" href="matakuliah.php" role="tab" aria-selected="false"><i class="fas fa-user-graduate"></i> Dosen</a>
           <a class="nav-link sidebar active" href="matakuliah.php" role="tab" aria-selected="false"><i class="fas fa-book-open"></i> Mata Kuliah</a>
 
-          <a class="nav-link sidebar" href="pengguna.php" role="tab" aria-selected="false" id="link_user"><i class="fas fa-user"></i> Pengguna</a>
+          <a class="nav-link sidebar" href="petugas.php" role="tab" aria-selected="false" id="link_user"><i class="fas fa-user"></i> Petugas</a>
         </div>
       </div>
       <div class="col-9">
@@ -81,20 +81,20 @@ if ($_SESSION['role'] != "Admin") {
                             <div class="modal-body">
                               <div class="form-group">
                                 <label for="id">Kode</label>
-                                <input type="text" class="form-control" id="id" maxlength="6" aria-describedby="kode" required>
+                                <input placeholder="Enam digit angka" type="number" class="form-control" id="id" maxlength="6" aria-describedby="kode" required>
                               </div>
                               <div class="form-group">
-                                <label for="nama">Nama Mata Kuliah</label>
-                                <input type="name" class="form-control" id="nama" aria-describedby="nama" required>
+                                <label for="nama">Nama</label>
+                                <input type="name" placeholder="Nama mata kuliah" class="form-control" id="nama" aria-describedby="nama" required>
                               </div>
                               <div class="form-group">
                                 <label for="sks">SKS</label>
-                                <input type="number" class="form-control" id="sks" maxlength="2" aria-describedby="sks" required>
+                                <input placeholder="Jumlah SKS" type="number" class="form-control" id="sks" maxlength="2" aria-describedby="sks" required>
                               </div>
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary btn_simpan">Save changes</button>
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                              <button type="button" class="btn btn-primary btn_simpan">Simpan</button>
                             </div>
                           </div>
                         </div>
@@ -150,21 +150,21 @@ if ($_SESSION['role'] != "Admin") {
                         <div class="modal-body">
                           <div class="form-group">
                             <label for="edit-id">Kode</label>
-                            <input type="text" class="form-control" id="edit-id" maxlength="6" aria-describedby="Kode" required>
+                            <input placeholder="Enam digit angka" type="number" class="form-control" id="edit-id" maxlength="6" aria-describedby="Kode" required>
                           </div>
                           <div class="form-group">
-                            <label for="edit-nama">Nama Mata Kuliah</label>
-                            <input type="name" class="form-control" id="edit-nama" aria-describedby="nama" required>
+                            <label for="edit-nama">Nama</label>
+                            <input type="name" placeholder="Nama mata kuliah" class="form-control" id="edit-nama" aria-describedby="nama" required>
                           </div>
                           <div class="form-group">
                             <label for="edit-sks">SKS</label>
-                            <input type="number" class="form-control" id="edit-sks" maxlength="2" aria-describedby="sks" required>
+                            <input placeholder="Jumlah SKS" type="number" class="form-control" id="edit-sks" maxlength="2" aria-describedby="sks" required>
                           </div>
                         </div>
 
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary btn_update">Save changes</button>
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                          <button type="button" class="btn btn-primary btn_update">Simpan</button>
                         </div>
                       </div>
                     </div>
@@ -181,12 +181,12 @@ if ($_SESSION['role'] != "Admin") {
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-  <script type="text/javascript" src="../asset/SweetAlert/sweetalert2.min.js"></script>
+  <script type="text/javascript" src="../assets/SweetAlert/sweetalert2.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="../asset/js/bootstrap.min.js"></script>
+  <script src="../assets/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
-  <script type="text/javascript" src="../Asset/js/jspdf.plugin.autotable.min.js"></script>
+  <script type="text/javascript" src="../assets/js/jspdf.plugin.autotable.min.js"></script>
   <script>
     $(document).ready(() => {
       const idLama = null;
@@ -217,7 +217,7 @@ if ($_SESSION['role'] != "Admin") {
           left: 40
         }
       });
-      doc.save('SBD-Akademik-Mata Kuliah.pdf');
+      doc.save('SI Akademik-Mata Kuliah.pdf');
     }
 
     // DELETE
@@ -230,17 +230,17 @@ if ($_SESSION['role'] != "Admin") {
         buttonsStyling: false
       })
       swalWithBootstrapButtons.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        title: 'Apakah kamu yakin?',
+        text: "Data yang dihapus tidak dapat dikembalikan!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Yes, delete it!',
-        cancelButtonText: 'No, cancel!',
+        confirmButtonText: 'Ya, hapus data!',
+        cancelButtonText: 'Tidak, batalkan!',
         reverseButtons: true
       }).then((result) => {
         if (result.value) {
           $.ajax({
-            url: "../controller/matakuliah-controller.php",
+            url: "../controllers/matakuliah-controller.php",
             type: 'post',
             data: {
               id,
@@ -248,8 +248,8 @@ if ($_SESSION['role'] != "Admin") {
             },
             success: function(data) {
               swalWithBootstrapButtons.fire(
-                'Deleted!',
-                'Your file has been deleted.',
+                'Dihapus!',
+                'Data berhasil dihapus.',
                 'success'
               );
               $('.item' + id).fadeOut(1500, function() {
@@ -259,7 +259,7 @@ if ($_SESSION['role'] != "Admin") {
             error: function(data) {
               swalWithBootstrapButtons.fire(
                 'Gagal!',
-                'Failed to delete your file.',
+                'Gagal menghapus data.',
                 'error'
               );
             }
@@ -268,8 +268,8 @@ if ($_SESSION['role'] != "Admin") {
           result.dismiss === Swal.DismissReason.cancel
         ) {
           swalWithBootstrapButtons.fire(
-            'Cancelled',
-            'Your imaginary file is safe :)',
+            'Dibatalkan',
+            'Penghapusan data dibatalkan.',
             'error'
           )
         }
@@ -287,15 +287,15 @@ if ($_SESSION['role'] != "Admin") {
       let id = $('#id').val();
       let nama = $('#nama').val();
       let sks = $('#sks').val();
-      if (id == '' || nama == '' || sks == '') {
+      if (id.length !== 6 || nama == '' || sks == '') {
         Swal.fire(
-          'Warning!',
-          'Pastikan Semua Data sudah terisi',
+          'Peringatan!',
+          'Pastikan semua data sudah terisi dengan benar.',
           'warning'
         );
       } else {
         $.ajax({
-          url: "../controller/matakuliah-controller.php",
+          url: "../controllers/matakuliah-controller.php",
           type: 'post',
           data: {
             tipe: 'create',
@@ -306,7 +306,7 @@ if ($_SESSION['role'] != "Admin") {
           success: function(data) {
             Swal.fire({
               icon: 'success',
-              title: 'Your work has been saved',
+              title: 'Data berhasil disimpan',
               showConfirmButton: false,
               timer: 1500
             })
@@ -317,7 +317,7 @@ if ($_SESSION['role'] != "Admin") {
           error: function(data) {
             swalWithBootstrapButtons.fire(
               'Gagal!',
-              'Failed to add data',
+              'Gagal menyimpan data',
               'error'
             );
           }
@@ -333,41 +333,52 @@ if ($_SESSION['role'] != "Admin") {
 
     // UPDATE
     $('.btn_update').on('click', function() {
-      $.ajax({
-        url: "../controller/matakuliah-controller.php",
-        type: 'post',
-        data: {
-          tipe: 'update',
-          idLama,
-          id: $('#edit-id').val(),
-          nama: $('#edit-nama').val(),
-          sks: $('#edit-sks').val()
-        },
-        success: function(data) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Update Success !',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          setTimeout(function() {
-            window.location.reload(1);
-          }, 1600);
-        },
-        error: function(data) {
-          swalWithBootstrapButtons.fire(
-            'Gagal!',
-            'Failed to delete your file.',
-            'error'
-          );
-        }
-      });
+      let id = $('#edit-id').val();
+      let nama = $('#edit-nama').val();
+      let sks = $('#edit-sks').val();
+      if (id.length !== 6 || nama == '' || sks == '') {
+        Swal.fire(
+          'Peringatan!',
+          'Pastikan semua data sudah terisi dengan benar.',
+          'warning'
+        );
+      } else {
+        $.ajax({
+          url: "../controllers/matakuliah-controller.php",
+          type: 'post',
+          data: {
+            tipe: 'update',
+            idLama,
+            id,
+            nama,
+            sks
+          },
+          success: function(data) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Data berhasil diperbarui',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            setTimeout(function() {
+              window.location.reload(1);
+            }, 1600);
+          },
+          error: function(data) {
+            swalWithBootstrapButtons.fire(
+              'Gagal!',
+              'Gagal memperbarui data.',
+              'error'
+            );
+          }
+        });
+      }
     });
 
     // EDIT
     function editAction(id) {
       $.ajax({
-        url: "../controller/matakuliah-controller.php",
+        url: "../controllers/matakuliah-controller.php",
         type: 'post',
         data: {
           id,
@@ -382,7 +393,7 @@ if ($_SESSION['role'] != "Admin") {
         error: function(data) {
           swalWithBootstrapButtons.fire(
             'Gagal!',
-            'Failed to delete your file.',
+            'Gagal memperbarui data.',
             'error'
           );
         }

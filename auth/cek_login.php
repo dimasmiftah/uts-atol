@@ -30,7 +30,7 @@ if ($cek > 0) {
 		$_SESSION['username'] = $username;
 		$_SESSION['role'] = "Admin";
 		// alihkan ke halaman dashboard admin
-		header("location:../view/dashboard.php");
+		header("location:../views/dashboard.php");
 
 		// cek jika user login sebagai peetugas
 	} else if ($data['role'] == "Petugas") {
@@ -40,7 +40,7 @@ if ($cek > 0) {
 		$_SESSION['nama'] = $data['nama'];
 		$_SESSION['role'] = "Petugas";
 		// alihkan ke halaman dashboard perkuliahan
-		header("location:../view/perkuliahan.php");
+		header("location:../views/perkuliahan.php");
 	} else {
 
 		// alihkan ke halaman login kembali
